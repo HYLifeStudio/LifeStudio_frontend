@@ -5,6 +5,7 @@ import Footer from '../component/footer/footer';
 import MainNavbar from '../component/mainNavbar/mainNavbar';
 import SetLocation from '../component/setLocation/setLocation';
 import SearchStudio from '../component/searchStudio/searchStudio';
+import StudioType from '../component/studioType/studioType';
 
 function Main(){
     return(
@@ -13,6 +14,7 @@ function Main(){
             <Route component={MainNavbar}/>
             <Route component={SetLocation}/>
             <Route component={SearchStudio}/>
+            <Route component={StudioType}/>
             <Route component={Footer}/>
         </div>
     )
