@@ -5,10 +5,11 @@ import Footer from '../component/footer/footer';
 import AlertModal from "../component/alertmodal/alertModal";
 import { UserContext } from '../context/user';
 
-function Main(){
+function Detail(){
     const {alertModal} = useContext(UserContext);
     return(
         <div>
+            <div><p>asdasd</p></div>
             <Route component={Header}/>
             <Route component={Footer}/>
             {
@@ -19,4 +20,4 @@ function Main(){
     )
 }
 
-export default Main;
+export default Detail;

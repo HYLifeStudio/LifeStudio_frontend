@@ -18,7 +18,7 @@ const UserContextProvider = ({children}) => {
                 setAlertModal
             }}
     >
-
+        {children}
     </UserContext.Provider>
 }
 
