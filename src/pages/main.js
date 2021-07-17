@@ -6,10 +6,14 @@ import AlertModal from "../component/alertmodal/alertModal";
 import { UserContext } from '../context/user';
 
 function Main(){
-    const {alertModal} = useContext(UserContext);
+    const {alertModal,setAlertModal} = useContext(UserContext);
+    function modalOpen(){
+        setAlertModal({onoff:true,msg:"hello"});
+    }
     return(
         <div>
             <Route component={Header}/>
+            <div><button onClick={modalOpen}>모달</button></div>
             <Route component={Footer}/>
             {
                 alertModal.onoff?

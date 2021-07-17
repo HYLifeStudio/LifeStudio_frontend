@@ -1,6 +1,7 @@
 import React,{useContext} from 'react';
 import Modal from 'react-modal';
 import { UserContext } from '../../context/user';
+import './alertModal.scss';
 
  
 
