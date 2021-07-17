@@ -1,0 +1,116 @@
+// start common
+.headerContainer{
+    background-color: black;
+    display: flex;
+    align-items: stretch;
+
+}
+  
+  // end common
+  
+  // start mobile
+  @media all and (min-width: 320px) {
+.headerContainer{
+    .arrowWrapper {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      .closeArrow {
+        width: 100%;
+        height: 12vh;
+        display: flex;
+        align-items: center;
+        .arrow {
+          margin-top: 0.5rem;
+          display: block;
+          width: 1.5rem;
+          margin-left: 0.8rem;
+        }
+      }
+    }
+    .menuContents {
+      color: #ffffff;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .menuItem {
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        height: 5vh;
+        span {
+          font-size: 0.9rem;
+          font-weight: 800;
+          color: #ffffff;
+          display: block;
+          margin-right: 1rem;
+        }
+      }
+    }
+    .ham{
+        width : 3rem;
+        height: 3rem;
+        margin-left: 12rem;
+    }
+    .button_1 {
+        background-color: black;
+        color : white;
+        border : none;
+      }
+  }
+}
+  // end mobile
+  
+  // start tablet
+  @media all and (min-width: 768px) {
+  }
+  // end tablet
+  
+  // start desktop
+  @media all and (min-width: 1024px) {
+    .arrowWrapper {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        .closeArrow {
+          width: 100%;
+          height: 12vh;
+          display: flex;
+          align-items: center;
+          .arrow {
+            margin-top: 0.5rem;
+            display: block;
+            width: 1.5rem;
+            margin-left: 0.8rem;
+          }
+        }
+      }
+      .menuContents {
+        color: #ffffff;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .menuItem {
+          white-space: nowrap;
+          overflow: hidden;
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+          height: 5vh;
+          span {
+            font-size: 0.9rem;
+            font-weight: 800;
+            display: block;
+            margin-right: 1rem;
+          }
+        }
+      }
+  }
+  // end desktop
+  

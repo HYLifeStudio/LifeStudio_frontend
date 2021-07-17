@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react';
+import React,{useContext} from 'react';
 import Modal from 'react-modal';
 import { UserContext } from '../../context/user';
 
@@ -19,7 +19,6 @@ import { UserContext } from '../../context/user';
             onRequestClose={closeModal}
             close={closeModal}
             className="modalbody"
-            style={customStyles}
             contentLabel="Example Modal"
           >
             <div className="modalmsg">{`${alertModal?.msg}`}</div>
