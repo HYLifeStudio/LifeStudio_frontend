@@ -1,21 +1,22 @@
 .searchStudioWrapper {
-  width: 637px;
-  height: 56px;
-  border-radius: 15px;
-  border: solid 1px #818181;
+  width: 100%;
   background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  left: 197px;
+}
+
+.searchStudioBox {
+  width: 10.813rem;
+  height: 1.25rem;
+  padding: 0.372rem 5.188rem 0.313rem 0.499rem;
+  border-radius: 7px;
+  border: solid 0.4px #818181;
+  background-color: #f8f8f8;
+  margin-left: 1.125rem;
 }
 
 .searchStudioSymbol {
-  width: 23px;
-  height: 23px;
-  position: relative;
-  left: 21px;
-  top: 16px;
+  width: 0.543rem;
+  height: 0.543rem;
+  background-color: blue;
 }
 
 .searchStudioInput {

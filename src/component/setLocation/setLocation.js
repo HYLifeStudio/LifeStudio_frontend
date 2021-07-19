@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import './setLocation.css';
+import './setLocation.scss';
 
 function SetLocation() {
   const location = {
@@ -9,10 +9,12 @@ function SetLocation() {
   return (
     <>
       <div className="setLocationWrapper">
-        <div className="setLocationAddress">
-          {location.address}
+        <div className="setLocationCur">
+          <div className="setLocationAddress">
+            {location.address}
+          </div>
+          <img className="setLocationSymbol" src="placeholder.png" alt="img"/>
         </div>
-        <img className="setLocationSymbol" src="placeholder.png" alt="img"/>
         <div className="setLocationChange">지역 변경</div>
       </div>
     </>

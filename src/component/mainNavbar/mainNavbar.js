@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import './mainNavbar.css';
+import './mainNavbar.scss';
 
 const menuItems = [
   {
@@ -28,8 +28,8 @@ function MainNavbar() {
         <ul className="mainNavbarUl">
           {menuItems.map((item, index) => {
             return (
-            <li key={index}>
-              <Link className={item.cName + (item.title === selected ? ' mainNavbarSelected' : '')} to={item.url} onClick={() => {setSelected(item.title)}}>
+            <li key={index} className={'mainNavbarLi' + (item.title === selected ? ' mainNavbarSelected' : '')}>
+              <Link className={item.cName} to={item.url} onClick={() => {setSelected(item.title)}}>
                 {item.title}
               </Link>
             </li>
