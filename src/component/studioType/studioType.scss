@@ -1,0 +1,22 @@
+* {
+  text-decoration: none;
+}
+
+.studioTypeCategory {
+  width: 163px;
+  height: 49px;
+  padding: 13px 32px 16px;
+  border-radius: 15px;
+  font-size:18px;
+  border: solid 1px #818181;
+  color: #818181;
+  background-color: #ffffff;
+  margin-left:14px;
+  position: relative;
+  top: 30px;
+}
+
+.studioTypeSelected {
+  color: #f2a03e;
+  border-color: #f2a03e;
+}

@@ -1,0 +1,13 @@
+.locationMapWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.locationMapContent {
+  width: 90%;
+  height: 400px;
+  align-items: center;
+  border: 2px solid orange ;
+  background-color: orange;
+}
