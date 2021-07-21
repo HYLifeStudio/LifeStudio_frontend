@@ -6,6 +6,7 @@ import Detail from './pages/detail';
 import NotFound from "./pages/notfound";
 
 import {UserContextProvider} from "./context/user";
+import Register from './pages/register';
 function App() {
   return (
     <UserContextProvider>
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Main}/>
         <Route path="/detail" component={Detail}/>
+        <Route path="/signup" component={Register}/>
         <Route component={NotFound}/>
       </Switch>
     </BrowserRouter>
