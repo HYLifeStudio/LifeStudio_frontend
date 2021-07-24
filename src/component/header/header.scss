@@ -51,16 +51,33 @@
         }
       }
     }
-    .ham{
+    .headerInitWrapper{
+      width: 95%;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: space-between;
+      
+    .headerLogoBox{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    .headerLogo {
+      background-color: black;
+      color : white;
+      border : none;
+      }
+      }
+      .hamburgerBox{
         width : 3rem;
         height: 3rem;
-        margin-left: 12rem;
-    }
-    .button_1 {
-        background-color: black;
-        color : white;
-        border : none;
+      .headerHam{
+        width : 100%;
+        height: 100%;
+        }
       }
+    
+}
   }
 }
   // end mobile
@@ -72,6 +89,7 @@
   
   // start desktop
   @media all and (min-width: 1024px) {
+    .headerContainer{
     .arrowWrapper {
         width: 100%;
         height: 100vh;
@@ -104,13 +122,41 @@
           width: 100%;
           height: 5vh;
           span {
-            font-size: 0.9rem;
+            font-size: 1.5rem;
             font-weight: 800;
             display: block;
             margin-right: 1rem;
           }
         }
       }
+      .headerInitWrapper{
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        
+      .headerLogoBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      .headerLogo {
+        background-color: black;
+        color : white;
+        border : none;
+        }
+        }
+        .hamburgerBox{
+          width : 3rem;
+          height: 3rem;
+        .headerHam{
+          width : 100%;
+          height: 100%;
+          }
+        }
+      
+  }
+}
   }
   // end desktop
   
