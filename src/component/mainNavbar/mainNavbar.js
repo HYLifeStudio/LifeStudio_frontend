@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './mainNavbar.scss';
+
+import SetLocation from '../setLocation/setLocation';
+import SearchStudio from '../searchStudio/searchStudio';
+import StudioType from '../studioType/studioType';
+
 
 const menuItems = [
   {
@@ -37,6 +43,13 @@ function MainNavbar() {
           })}
         </ul>
       </nav>
+      <div className="NavBarContentWrapper">
+          <Route component={SetLocation}/>
+          <Route component={SearchStudio}/>
+          <Route component={StudioType}/>
+          
+
+      </div>
     </>
 	);
 };
