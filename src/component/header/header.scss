@@ -52,7 +52,7 @@
       }
     }
     .headerInitWrapper{
-      width: 95%;
+      width: 99%;
       display: flex;
       flex-direction: row;
       align-items: stretch;
@@ -62,10 +62,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      
     .headerLogo {
       background-color: black;
       color : white;
       border : none;
+      font-weight: 800;
+      font-size: 1.5rem;
       }
       }
       .hamburgerBox{
@@ -130,7 +133,7 @@
         }
       }
       .headerInitWrapper{
-        width: 95%;
+        width: 99%;
         display: flex;
         flex-direction: row;
         align-items: stretch;
@@ -144,6 +147,8 @@
         background-color: black;
         color : white;
         border : none;
+        font-weight: 800;
+      font-size: 1.5rem;
         }
         }
         .hamburgerBox{

@@ -7,12 +7,9 @@ function SearchStudio() {
   return (
     <>
       <div className="searchStudioWrapper">
-        <div className="searchStudioBox">
-          <img className="searchStudioSymbol" src="search.png" alt=""/>
-          <form action="">
-            <input className="searchStudioInput" type="text" placeholder="사진관 이름을 검색하세요" value={studio} onChange={(e) => setStudio(e.target.value)}/>
-          </form>
-        </div>
+        <input className="searchStudioBox" placeholder="사진관 이름을 검색하세요.">
+      
+        </input>
       </div>
     </>
   )
