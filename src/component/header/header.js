@@ -60,7 +60,7 @@ function Header() {
             }}
           >인생 사진관</button>
           </div>
-          <div class="hamburgerBox">
+          <div className="hamburgerBox">
           <img
                 className="headerHam"
                 src={ham}

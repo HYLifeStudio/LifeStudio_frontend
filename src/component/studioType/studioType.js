@@ -30,7 +30,7 @@ function StudioType() {
       <div className="studioTypeWrapper">
         {categoryItems.map((item, index) => {
           return (
-            <div className={item.title === selected ? 'studioTypeSelected':'studioTypeContainer'} onClick={()=>{setSelected(item.title)}}>
+            <div className={item.title === selected ? 'studioTypeSelected':'studioTypeContainer'} onClick={()=>{setSelected(item.title)}} key={index}>
                 {item.title}
            </div>
           )

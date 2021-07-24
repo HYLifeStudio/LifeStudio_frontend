@@ -62,8 +62,8 @@ function StudioList() {
         <div className="studioListMain">
           {studioItems.map((item, index) => {
             return (
-              <Link className="studioListUrl" to={item.url}>
-                <div className="studioListCard" key={index}>
+              <Link className="studioListUrl" to={item.url} key={index}>
+                <div className="studioListCard">
                   <div className="studioListPhoto">
                     <img className="studioListImg" src={p1}/>
                   </div>
