@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import trp from "../../images/top-right-arrow.png";
 import './setLocation.scss';
 
 function SetLocation() {
@@ -13,7 +14,7 @@ function SetLocation() {
           <div className="setLocationAddress">
             {location.address}
           </div>
-          <img className="setLocationSymbol" src="placeholder.png" alt="img"/>
+          <img className="setLocationSymbol" src={trp} alt="img"/>
         </div>
         <div className="setLocationChange">지역 변경</div>
       </div>
