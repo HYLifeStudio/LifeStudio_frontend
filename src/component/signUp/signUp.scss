@@ -6,7 +6,6 @@
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    // justify-items: center;
     align-items: center;
   }
 
@@ -15,7 +14,6 @@
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    // justify-items: center;
     align-items: center;
     input, select {
       border: none;
@@ -56,8 +54,11 @@
     flex-direction: column;
     align-items: center;
     width: 11rem;
-    input, select {
+    .signUpName, .signUpGender, .signUpBirth {
+      width: 100%;
       border-bottom: solid 0.1rem #e8e8e8;
+    }
+    input, select {
       width: 100%;
       color: #121212;
       font-family: YDIYGO320;
@@ -99,6 +100,9 @@
     }
     button {
       border: none;
+    }
+    .signUpEmail {
+      background-color: #f8f8f8;
     }
     .signUpEmail, .signUpCertificate {
       margin-top: 0.3rem;
@@ -153,7 +157,6 @@
       .signUpNicknameBtn {
         width: 3.738rem;
         height: 1.322rem;
-        // margin: 0 0 0 8.077rem;
         border-radius: 8px;
         background-color: #bebebe;
         font-family: YDIYGO320;
@@ -220,15 +223,11 @@
       }
       .signUpTermBtn {
         margin-right: 1rem;
-        // width: 0.875rem;
-        // height: 0.563rem;
-        // margin: 0.518rem 0 0.5rem 9.424rem;
         font-family: YDIYGO330;
         font-size: 0.5rem;
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
-        // line-height: 1.25;
         letter-spacing: normal;
         text-align: left;
         color: #818181;
@@ -289,6 +288,21 @@
     text-align: left;
     color: #121212;
   }
+  .signUpContent {
+    margin-top: 0.8rem;
+    width: 100%;
+    .signUpLabel {
+      margin-bottom: 0.5rem;
+      font-family: YDIYGO330;
+      font-size: 0.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #818181;
+    }
+  }
   .signUpBasicInfo {
     margin-top: 2.5rem;
     display: flex;
@@ -320,21 +334,6 @@
     }
     input::placeholder{
       color: #bebebe;
-    }
-  }
-  .signUpContent {
-    margin-top: 0.8rem;
-    width: 100%;
-    .signUpLabel {
-      font-family: YDIYGO330;
-      font-size: 0.8rem;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #818181;
-      margin-bottom: 0.5rem;
     }
   }
   .signUpDetailInfo {
