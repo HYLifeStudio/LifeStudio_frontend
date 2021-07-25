@@ -165,26 +165,26 @@ function SignUp() {
         <form className="signUpForm">
           <h1 className="signUpTitle">회원가입</h1>
           <div className="signUpBasicInfo">
-            <div className="signUpContent">
-              <span className="signUpLabel">이름*</span>
-              <input className="signUpName" type="text" value={name} placeholder=" 이름을 입력하세요." onChange={handleName}/>
+            <div className="signUpContent signUpName">
+              <div className="signUpLabel">이름*</div>
+              <input className="signUpNameInput" type="text" value={name} placeholder=" 이름을 입력하세요." onChange={handleName}/>
             </div>
-            <div className="signUpContent">
-              <span className="signUpLabel">성별*</span>
-              <select className="signUpGender" value={gender} onChange={handleGender}>
+            <div className="signUpContent signUpGender">
+              <div className="signUpLabel">성별*</div>
+              <select className="signUpGenderSelect" value={gender} onChange={handleGender}>
                 <option value="" disabled hidden>성별을 입력하세요</option>
                 <option value="male">남자</option>
                 <option value="female">여자</option>
               </select>
             </div>
-            <div className="signUpContent">
-              <span className="signUpLabel">생년월일*  </span>
+            <div className="signUpContent signUpBirth">
+              <div className="signUpLabel">생년월일*  </div>
               <Calendar />
             </div>
           </div>
           <div className="signUpDetailInfo">
             <div className="signUpContent signUpEmailWrapper">
-              <span className="signUpLabel">이메일*</span>
+              <div className="signUpLabel">이메일*</div>
               <div className="signUpEmail">
                 <input className="signUpEmailInput" value={email} placeholder=" 이메일을 입력해주세요" onChange={handleEmail}/>
                 <button className="signUpEmailBtn" onClick={sendEmail}>이메일 인증</button>
@@ -195,32 +195,33 @@ function SignUp() {
               </div>
             </div>
             <div className="signUpContent signUpNickNameWrapper">
-              <span className="signUpLabel">닉네임*</span>
+              <div className="signUpLabel">닉네임*</div>
               <input className="signUpNickname" value={nickname} placeholder=" 닉네임을 입력해주세요" onChange={handleNickname}/>
               <div className="signUpCheckNickname">
                 <button className="signUpNicknameBtn" onClick={(e) => {e.preventDefault(); setNicknameCheck(true); console.log('중복검사')}}>중복 검사</button>
-                <span className="signUpIsCheckedNickname" style={nicknameCheck === undefined ? {display:"none"} : {display:"flex"}}>{nicknameCheck ? "이용가능한 닉네임입니다" : "이미 사용 중인 닉네임입니다."}</span>
+                <div className="signUpIsCheckedNickname" style={nicknameCheck === undefined ? {display:"none"} : {display:"flex"}}>{nicknameCheck ? "이용가능한 닉네임입니다" : "이미 사용 중인 닉네임입니다."}</div>
               </div>
             </div>
             <div className="signUpContent">
-              <span className="signUpLabel">전화번호*</span>
+              <div className="signUpLabel">전화번호*</div>
               <input className="signUpContact" type="text" value={contact} placeholder=" 전화번호를 입력하세요" onChange={handleContact} autoComplete="nope"/>
             </div>
             <div className="signUpContent">
-              <span className="signUpLabel">비밀번호*</span>
+              <div className="signUpLabel">비밀번호*</div>
               <input className="signUpPassword" type="password" value={password} placeholder=" 영문/숫자 조합 8-20자로 입력하세요" onChange={handlePassword}/>
             </div>
             <div className="signUpContent">
-              <span className="signUpLabel">비밀번호 확인*</span>
+              <div className="signUpLabel">비밀번호 확인*</div>
               <input className="signUpRePassword" type="password" value={rePassword} placeholder=" 영문/숫자 조합 8-20자로 입력하세요" onChange={handleRePassword}/>
             </div>
           </div>
           <div className="signUpTerms">
-            <span className="signUpLabel">서비스 동의</span>
+            <div className="signUpLabel">서비스 동의</div>
             <div className="signUpTermsRow">
               <div className="signUpTermMain">
                 <label htmlFor="signUpTermAllId">
-                  <input className="signUpTermAll" id="signUpTermAllId" type="checkbox" checked={termAll} onChange={handleTermAll}/>전체 동의하기
+                  <input className="signUpTermAll" id="signUpTermAllId" type="checkbox" checked={termAll} onChange={handleTermAll}/>
+                  <div className="signUpTermAllDiv">전체 동의하기</div>
                 </label>
               </div>
             </div>
@@ -228,7 +229,7 @@ function SignUp() {
               <div className="signUpTermMain">
                 <label htmlFor="signUpTerm1Id">
                   <input className="signUpTerm" id="signUpTerm1Id" type="checkbox" checked={term1} onChange={handleTerm1}/>
-                  <span>인생사진관 서비스 이용약관 동의</span>
+                  <div className="signUpTermDiv">인생사진관 서비스 이용약관 동의</div>
                 </label>
               </div>
               <button className="signUpTermBtn" onClick={(e) => {e.preventDefault();console.log("termbtn");}}>보기</button>
@@ -237,7 +238,7 @@ function SignUp() {
               <div className="signUpTermMain">
                 <label htmlFor="signUpTerm2Id">
                   <input className="signUpTerm" id="signUpTerm2Id" type="checkbox" checked={term2} onChange={handleTerm2}/>
-                  <span>인생사진관 개인정보 처리방침 동의</span>
+                  <div className="signUpTermDiv">인생사진관 개인정보 처리방침 동의</div>
                 </label>
               </div>
               <button className="signUpTermBtn" onClick={(e) => {e.preventDefault();console.log("termbtn");}}>보기</button>

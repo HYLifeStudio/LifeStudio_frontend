@@ -1,6 +1,6 @@
 @import "~react-datepicker/dist/react-datepicker.css";
 
-@media all and (min-width: 320px){
+@media all and (min-width: 320px) and (max-width: 1024px) {
   .signUpWrapper {
     width: 100%;
     background-color: #ffffff;
@@ -70,7 +70,7 @@
       padding: 0rem 0rem 0rem 0rem;
       margin: 0rem 0rem 0rem 0rem;
     }
-    input::placeholder, select hidden{
+    input::placeholder{
       color: #bebebe;
     }
   }
@@ -246,6 +246,279 @@
     background-color: #ff9c15;
     font-family: YDIYGO330;
     font-size: 0.75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .signUpWrapper {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .signUpForm{
+    width: 50%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input, select {
+      border: none;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+  .signUpTitle {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: YDIYGO340;
+    font-size: 2.5rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121212;
+  }
+  .signUpBasicInfo {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .signUpName, .signUpGender {
+      width: 45%;
+      border-bottom: solid 0.1rem #707070;
+    }
+    .signUpBirth {
+      width: 100%;
+      border-bottom: solid 0.1rem #707070;
+    }
+    input, select {
+      width: 100%;
+      color: #121212;
+      font-family: YDIYGO320;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      padding: 0rem 0rem 0rem 0rem;
+      margin: 0rem 0rem 0rem 0rem;
+    }
+    input::placeholder{
+      color: #bebebe;
+    }
+  }
+  .signUpContent {
+    margin-top: 0.8rem;
+    width: 100%;
+    .signUpLabel {
+      font-family: YDIYGO330;
+      font-size: 0.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #818181;
+      margin-bottom: 0.5rem;
+    }
+  }
+  .signUpDetailInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      border: solid 0.5px #e8e8e8;
+      border-radius: 11px;
+      height: 2.5rem;
+      width: 100%;
+      font-family: YDIYGO320;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+    }
+    input::placeholder {
+      color: #bebebe;
+    }
+    .signUpEmail {
+      background-color: #f8f8f8;
+      margin-top: 0.7rem;
+      border: solid 0.5px #e8e8e8;
+      border-radius: 11px;
+      width: 100%;
+      height: 3rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .signUpEmailInput {
+      border: none;
+      width: 65%;
+      background: none;
+    }
+    .signUpCertificate {
+      margin-top: 0.2rem;
+      border-radius: 11px;
+      width: 100%;
+      height: 2.5rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .signUpCertificationInput {
+      background-color: #f8f8f8;
+      border: solid 0.5px #e8e8e8;
+      width: 50px;
+      height: 28px;
+      flex-grow: 1;
+    }
+    button {
+      border: none;
+      width: 111px;
+      height: 28px;
+      margin-right: 0.3rem;
+      border-radius: 7px;
+      font-family: YDIYGO320;
+      font-size: 0.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      padding: 0 0 0 0;
+    }
+    .signUpEmailBtn, .signUpNicknameBtn {
+      background-color: #bebebe;
+    }
+    .signUpCertificationBtn {
+      margin-left: 0.3rem;
+      background-color: #ff9c15;
+      flex-basis: 111px;
+      flex-grow: 0;
+    }
+    .signUpCheckNickname {
+      width: 100%;
+      margin-top: 0.3rem;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      .signUpIsCheckedNickname {
+        width: auto;
+        font-family: YDIYGO320;
+        font-size: 0.313rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ff9c15;
+      }
+    }
+  }
+  .signUpTerms {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border-radius: 9px;
+    background-color: #f8f8f8;
+    padding-bottom: 1rem;
+    .signUpLabel {
+      margin: 1rem 0 0.7rem 1rem;
+      font-family: YDIYGO330;
+      font-size: 0.9rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #818181;
+    }
+    .signUpTermsRow {
+      width: 100%;
+      margin: 0 0 0.3rem 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      label {
+        margin-left: 1.2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        input {
+          margin-right: 0.5rem;
+        }
+        .signUpTermAllDiv {
+          font-family: YDIYGO330;
+          font-size: 1rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #bebebe;
+        }
+        .signUpTermDiv {
+          font-family: YDIYGO330;
+          font-size: 0.8rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #bebebe;
+        }
+      }
+      .signUpTermBtn {
+        margin-right: 1.2rem;
+        font-family: YDIYGO330;
+        font-size: 0.7rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #818181;
+        border: none;
+        background-color: #f8f8f8;
+      }
+    }
+  }
+  .signUpFinish {
+    width: 13rem;
+    height: 3.5rem;
+    margin: 1.5rem 0 1.5rem 0;
+    border-radius: 19px;
+    border: none;
+    background-color: #ff9c15;
+    font-family: YDIYGO330;
+    font-size: 1rem;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
