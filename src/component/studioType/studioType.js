@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { Link,Route } from 'react-router-dom';
 import './studioType.scss';
-import LocationMap from '../locationMap/locationMap';
-import StudioList from "../studioList/studioList";
+
 
 const categoryItems = [
   {
@@ -36,10 +35,7 @@ function StudioType() {
           )
         })}
       </div>
-      <div className="StudioContentWrapper">
-        <Route component={LocationMap}/>
-        <Route component={StudioList}/>
-      </div>
+      
     </>
 	);
 };

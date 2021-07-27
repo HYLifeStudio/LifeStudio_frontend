@@ -6,6 +6,10 @@ import './mainNavbar.scss';
 import SetLocation from '../setLocation/setLocation';
 import SearchStudio from '../searchStudio/searchStudio';
 import StudioType from '../studioType/studioType';
+import LocationMap from '../locationMap/locationMap';
+import StudioList from "../studioList/studioList";
+
+import SortPill from "../sortPill/sortPill";
 
 
 const menuItems = [
@@ -44,9 +48,28 @@ function MainNavbar() {
         </ul>
       </nav>
       <div className="NavBarContentWrapper">
+        {
+          selected === '위치로 찾기'?
+          <>
           <Route component={SetLocation}/>
           <Route component={SearchStudio}/>
           <Route component={StudioType}/>
+          <div className="StudioContentWrapper">
+            <Route component={LocationMap}/>
+            <Route component={StudioList}/>
+          </div>
+          </>
+          :
+          <>
+          <Route component={StudioType}/>
+          <div className="sortPillWrapper">
+            <Route component={SortPill}/>
+          </div>
+          
+          
+          </>
+        }
+          
           
 
       </div>
