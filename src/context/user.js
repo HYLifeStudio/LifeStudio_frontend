@@ -3,6 +3,8 @@ import React, {createContext, useState} from 'react';
 const defaultContext = {
     sellerModal : {onoff : false, msg : ""},
     setSellerModal : undefined,
+    Loading : false,
+    setLoading : undefined
 }
 
 const UserContext = createContext(defaultContext);
@@ -12,10 +14,15 @@ const UserContextProvider = ({children}) => {
         onoff : false,
         msg : "",
     });
+    const [Loading,setLoading] = useState(false);
+
     return <UserContext.Provider
             value={{
                 alertModal,
-                setAlertModal
+                setAlertModal,
+                Loading,
+                setLoading
+
             }}
     >
         {children}
