@@ -3,6 +3,7 @@
   background-color: #ffffff;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .studioListUrl {
@@ -77,18 +78,20 @@
 }
 
 @media all and (min-width: 1024px) {
+  .studioListWrapper{
   .studioListMain {
     width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     .studioListCard {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 25rem;
-      height: 30rem;
+      width: 30rem;
+      height: 35rem;
       border-radius: 14px;
       margin-top: 1.5rem;
       border: solid 0.2px #818181;
@@ -141,5 +144,6 @@
       }
     }
   }
+}
   
 }

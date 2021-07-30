@@ -1,5 +1,6 @@
 import React from "react"
 import "./studioInfo.scss";
+import p1 from "../../pages/sajin1.JPG";
 
 function StudioInfo(){
 
@@ -33,17 +34,17 @@ function StudioInfo(){
             </div>
             <div className="studioInfoPicContainer">
                 <div className="studioInfoPicLarge">
-
+                    <img src={p1}/>
                 </div>
                 <div className="studioInfoPicSmall">
                     <div className="studioInfoPicSmallComponents">
-
+                        <img src={p1}/>
                     </div>
                     <div className="studioInfoPicSmallComponents">
-                        
+                        <img src={p1}/>
                     </div>
                     <div className="studioInfoPicSmallComponents">
-                        
+                        <img src={p1}/>
                     </div>
 
                 </div>
