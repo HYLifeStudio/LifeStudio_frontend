@@ -1,102 +1,232 @@
+.myoverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
 
-@media all and (min-width: 320px) and (max-width : 768px){
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+
+@media all and (min-width: 320px){
     .modalbody{
-        border-radius : 10px;
-        width : 90%;
-        height : 25%;
+        outline: none;
+        border-radius : 26px;
+        width : 75%;
+        height : auto;
         display : flex;
         flex-direction : column;
         align-items : center;
-        border : 1px solid rgb(228, 155, 87);
+        border : none;
+        // border : 1px solid rgb(228, 155, 87);
         background-color: white;
-        margin : 15rem 0rem 0rem 1rem;
-        .modalmsg{
-            display: flex;
-            width: 100%;
-            height: 50vh;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.9rem;
-            font-weight: bold;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 8rem;
+        .modalName {
+          text-align: center;
+          font-family: YDIYGO330;
+          font-size: 0.813rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: normal;
+          color: #121212;
         }
-        .modal_btn{
-            display: block;
-            color : #ffffff;
-            border-radius: 25px;
-            width : 30%;
-            height: 10vh;
+        .modalClose {
+          margin-top: 1rem;
+          margin-left: auto;
+          margin-right: 1rem;
+        }
+        .modalLogo {
+          text-shadow: 0 3px 6px rgba(255, 255, 255, 0.16);
+          font-family: 210OmniGothic-040;
+          font-size: 1.813rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 2.62;
+          letter-spacing: -6.09px;
+          text-align: left;
+          color: #ff9c15;
+        }
+        .modalLogin {
+          width: 11rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .modalIdInput, .modalPWInput {
             margin-bottom: 1rem;
-            background-color: rgb(228, 155, 87);
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #707070;
+            font-family: YDIYGO330;
+            font-size: 0.625rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #707070;
+          }
+          input:focus {
+            outline: none;
+          }
+          input::placeholder {
+            color: #bebebe;
+          }
+          .modalBtn {
+            width: 90%;
+            height: 2.5rem;
+            margin-top: 0.5rem;
+            border-radius: 19px;
+            background-color: #ff9c15;
+            border: none;
+            font-family: YDIYGO330;
+            font-size: 0.813rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #ffffff;
+          }
         }
-    
+        .modalLower {
+          margin-top: 1rem;
+          margin-bottom: 1.5rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 12rem;
+          font-size: 0.6rem;
+          div {
+            width: 33%;
+            text-align: center;
+          }
+          .modalCS {
+            border-left: 0.5px solid #bebebe;
+            border-right: 0.5px solid #bebebe;
+          }
+          .modalFindPW, .modalCS {
+            font-family: YDIYGO330;
+            font-size: 0.625rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: normal;
+            color: #818181;
+          }
+          .modalSignUp {
+            font-family: YDIYGO330;
+            font-size: 0.625rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: normal;
+            color: #ff9c15;
+          }
+        }
+        // .modalmsg{
+        //     display: flex;
+        //     width: 100%;
+        //     height: 50vh;
+        //     flex-direction: column;
+        //     justify-content: center;
+        //     align-items: center;
+        //     font-size: 0.9rem;
+        //     font-weight: bold;
+        // }
+        // .modal_btn{
+        //     display: block;
+        //     color : #ffffff;
+        //     border-radius: 25px;
+        //     width : 30%;
+        //     height: 10vh;
+        //     margin-bottom: 1rem;
+        //     background-color: rgb(228, 155, 87);
+        // }
+
 }
-    
-    
+
+
 }
-@media all and (min-width: 768px) and (max-width : 1024px){
-    .modalbody{
-        border-radius : 10px;
-        width : 90%;
-        height : 25%;
-        display : flex;
-        flex-direction : column;
-        align-items : center;
-        border : 1px solid rgb(228, 155, 87);
-        background-color: white;
-        margin : 15rem 0rem 0rem 3rem;
-    
-    .modalmsg{
-        display: flex;
-        width: 100%;
-        height: 50vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 0.9rem;
-        font-weight: bold;
-    }
-    .modal_btn{
-        display: block;
-        color : #ffffff;
-        border-radius: 25px;
-        width : 30%;
-        height: 10vh;
-        background-color: rgb(228, 155, 87);
-        margin-bottom: 1rem;
-    }
-}
-}
-@media all and (min-width: 1024px){
-    .modalbody{
-        border-radius : 10px;
-        width : 90%;
-        height : 25%;
-        display : flex;
-        flex-direction : column;
-        align-items : center;
-        border : 1px solid rgb(228, 155, 87);
-        background-color: white;
-        margin : 15rem 0rem 0rem 5rem;
-    
-    .modalmsg{
-        display: flex;
-        width: 100%;
-        height: 50vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 0.9rem;
-        font-weight: bold;
-    }
-    .modal_btn{
-        color : #ffffff;
-        border-radius: 25px;
-        width : 30%;
-        height: 10vh;
-        background-color: rgb(228, 155, 87);
-        margin-bottom: 1rem;
-        display: block;
-    }
-}
-}
+// @media all and (min-width: 768px) and (max-width : 1024px){
+//     .modalbody{
+//         border-radius : 10px;
+//         width : 90%;
+//         height : 25%;
+//         display : flex;
+//         flex-direction : column;
+//         align-items : center;
+//         border : 1px solid rgb(228, 155, 87);
+//         background-color: white;
+//         margin : 15rem 0rem 0rem 3rem;
+
+//     .modalmsg{
+//         display: flex;
+//         width: 100%;
+//         height: 50vh;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         font-size: 0.9rem;
+//         font-weight: bold;
+//     }
+//     .modal_btn{
+//         display: block;
+//         color : #ffffff;
+//         border-radius: 25px;
+//         width : 30%;
+//         height: 10vh;
+//         background-color: rgb(228, 155, 87);
+//         margin-bottom: 1rem;
+//     }
+// }
+// }
+// @media all and (min-width: 1024px){
+//     .modalbody{
+//         border-radius : 10px;
+//         width : 90%;
+//         height : 25%;
+//         display : flex;
+//         flex-direction : column;
+//         align-items : center;
+//         border : 1px solid rgb(228, 155, 87);
+//         background-color: white;
+//         margin : 15rem 0rem 0rem 5rem;
+
+//     .modalmsg{
+//         display: flex;
+//         width: 100%;
+//         height: 50vh;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         font-size: 0.9rem;
+//         font-weight: bold;
+//     }
+//     .modal_btn{
+//         color : #ffffff;
+//         border-radius: 25px;
+//         width : 30%;
+//         height: 10vh;
+//         background-color: rgb(228, 155, 87);
+//         margin-bottom: 1rem;
+//         display: block;
+//     }
+// }
+// }
