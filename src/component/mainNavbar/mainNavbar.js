@@ -10,6 +10,7 @@ import LocationMap from '../locationMap/locationMap';
 import StudioList from "../studioList/studioList";
 
 import SortPill from "../sortPill/sortPill";
+import StyleBook from "../styleBook/styleBook";
 
 
 const menuItems = [
@@ -65,6 +66,7 @@ function MainNavbar() {
           <div className="sortPillWrapper">
             <Route component={SortPill}/>
           </div>
+          <Route component={StyleBook}/>
           
           
           </>

@@ -86,6 +86,7 @@ const MenuBox = styled.div`
   height: 100vh;
   transition: all 1s ease;
   background-color: rgba(0, 0, 0, 0.8);
+  z-index : 1000000;
 
   ${(props) =>
     props.clickOpenArrow &&
@@ -95,9 +96,11 @@ const MenuBox = styled.div`
     }
       @media only screen and (min-width: 768px){
         width : 40%
+
       }
       @media only screen and (min-width: 1024px){
-        width : 30%
+        width : 20%
+        
       }
       height: 100vh;
     `}

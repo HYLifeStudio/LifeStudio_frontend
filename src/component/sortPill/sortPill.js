@@ -12,42 +12,45 @@ export default function SortPill(){
   const 소품클릭 = () => set소품(!소품);
 
   return (
-    <div className="menu-container">
-        <div className="menuBox">
-      <button onClick={색상클릭} className="menu-trigger">
-        <span>색상</span>
-      </button>
-      <div ref={dropdownRef} className={`menu ${색상 ? 'active' : 'inactive'}`}>
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </ul>
+    <div className="pill-container">
+        <div className="pillBox">
+            <button onClick={색상클릭} className="pill-trigger">
+                <span>색상</span>
+            
+            <div ref={dropdownRef} className={`colormenu ${색상 ? 'active' : 'inactive'}`}>
+                <ul className="pillul">
+                <li className="pillli">1</li>
+                <li className="pillli">2</li>
+                <li className="pillli">3</li>
+                </ul>
+            </div>
+            </button>
       </div>
+      <div className="pillBox">
+        <button onClick={배경클릭} className="pill-trigger">
+            <span>배경</span>
+        
+        <div ref={dropdownRef} className={`backgroundmenu ${배경 ? 'active' : 'inactive'}`}>
+            <ul className="pillul">
+            <li className="pillli">4</li>
+            <li className="pillli">5</li>
+            <li className="pillli">6</li>
+            </ul>
+        </div>
+        </button>
       </div>
-      <div className="menuBox">
-      <button onClick={배경클릭} className="menu-trigger">
-        <span>배경</span>
-      </button>
-      <div ref={dropdownRef} className={`menu ${배경 ? 'active' : 'inactive'}`}>
-        <ul>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-        </ul>
-      </div>
-      </div>
-      <div className="menuBox">
-      <button onClick={소품클릭} className="menu-trigger">
-        <span>소품</span>
-      </button>
-      <div ref={dropdownRef} className={`menu ${소품 ? 'active' : 'inactive'}`}>
-        <ul>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-        </ul>
-      </div>
+      <div className="pillBox">
+        <button onClick={소품클릭} className="pill-trigger">
+            <span>소품</span>
+        
+        <div ref={dropdownRef} className={`thingsmenu ${소품 ? 'active' : 'inactive'}`}>
+            <ul className="pillul">
+            <li className="pillli">7</li>
+            <li className="pillli">8</li>
+            <li className="pillli">9</li>
+            </ul>
+        </div>
+        </button>
       </div>
       
     </div>

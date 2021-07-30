@@ -1,5 +1,5 @@
 .setLocationWrapper {
-  width: 100%;
+  width: 95%;
   display:flex;
   flex-direction: row;
   justify-content: space-between;
@@ -36,6 +36,39 @@
     font-style: normal;
     // line-height: 2.29;
     letter-spacing: normal;
+    text-align: left;
+    color: #818181;
+    margin-right: 0.5rem;
+  }
+}
+}
+
+@media all and (min-width: 1024px) {
+  .setLocationWrapper{
+  .setLocationCur{
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    .setLocationAddress {
+      // width: 4.125rem;
+      // height: 0.938rem;
+      font-size: 2rem;
+      font-weight: 800;
+      font-stretch: normal;
+      // line-height: 2.08;
+      letter-spacing: normal;
+      text-align: justify;
+      color: #121212;
+    }
+    .setLocationSymbol {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  .setLocationChange {
+    width: auto;
+    font-size: 1rem;
+    font-weight: 400;
     text-align: left;
     color: #818181;
     margin-right: 0.5rem;
