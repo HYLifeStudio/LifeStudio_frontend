@@ -1,0 +1,17 @@
+.SRAWrapper{
+    width: 90%;
+}
+
+
+@media all and (min-width:1024px){
+    .SRAWrapper{
+        .SRACaution{
+            width : 100%;
+            span{
+                color : orange;
+                font-weight: 100;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

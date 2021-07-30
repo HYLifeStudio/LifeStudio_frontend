@@ -73,10 +73,13 @@
 }
 @media all and (min-width: 1024px) {
     .studioReviewWrapper{
+        display: flex;
+
         .studioReviewContainer{
             height: 50vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
             margin-bottom: 2rem;
             .studioReviewTitleBox{
                 font-weight: 800;
@@ -88,50 +91,61 @@
                 height: 10vh;
                 background-color: yellow;
             }
-            .studioReviewContentContainer{
-                width: 100%;
-                height: 30vh;
-                border : 1px solid #585656;
-                border-radius: 10px;
-                .studioReviewContentBox{
-                    width : 100%;
-                    height: 100%;
+            .studioReviewContentWrapper{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .studioReviewContentContainer{
+                    width: 48%;
+                    height: 30vh;
+                    border : 1px solid #585656;
                     border-radius: 10px;
-                    
-                    .studioReviewContentBoxTitle{
+                    .studioReviewContentBox{
                         width : 100%;
-                        height : auto;
-                        display: flex;
-                        flex-direction: row;
-                        margin-left: 0.5rem;
-                        .studioReviewUserName{
-                            font-weight: 400;
-                            font-size: 2rem;
-                        }
-                        .studioReviewUserInfo{
-                            font-weight: 100;
-                            font-size: 1.5rem;
-                            margin-left : 0.5rem;
-                            margin-top : 0.5rem;
-                            color : #615d5d
-                        }
-
-                    }
-                    .studioReviewContentBoxScore{
-                        width : 100%;
-                        height: 25%;
-                        background-color: yellow;
-                    }
-                    .studioReviewContentBoxContent{
-                        width : 95%;
-                        height: auto;
-                        margin-left: 0.5rem;
-                        font-weight: 200;
-                        font-size: 1.5rem;
-                        line-height: 150%;
+                        height: 100%;
+                        border-radius: 10px;
+                        padding : 1rem;
                         
+                        .studioReviewContentBoxTitle{
+                            width : 100%;
+                            height : auto;
+                            display: flex;
+                            flex-direction: row;
+                            margin-left: 0.5rem;
+                            .studioReviewUserName{
+                                font-weight: 400;
+                                font-size: 2rem;
+                            }
+                            .studioReviewUserInfo{
+                                font-weight: 100;
+                                font-size: 1.5rem;
+                                margin-left : 0.5rem;
+                                margin-top : 0.5rem;
+                                color : #615d5d
+                            }
+
+                        }
+                        .studioReviewContentBoxScore{
+                            width : 50%;
+                            height: 25%;
+                            background-color: yellow;
+                        }
+                        .studioReviewContentBoxContent{
+                            width : 95%;
+                            height: auto;
+                            margin-left: 0.5rem;
+                            font-weight: 200;
+                            font-size: 1rem;
+                            line-height: 150%;
+                            
+                        }
                     }
                 }
+            }
+            .reviewmorebtn{
+                margin-top: 2rem;
+                font-weight: 800;
+                font-size: 2rem;
             }
         }
         
