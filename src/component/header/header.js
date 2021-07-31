@@ -50,15 +50,19 @@ function Header() {
             </div>
           </div>
         </MenuBox>
+        <div className="headerInitWrapper">
+          <div className="headerLogoBox">
           <button
-            className="button_1"
+            className="headerLogo"
             onClick={() => {
               history.replace('/');
               window.location.reload();
             }}
           >인생 사진관</button>
+          </div>
+          <div className="hamburgerBox">
           <img
-                className="ham"
+                className="headerHam"
                 src={ham}
                 alt=""
                 onClick={() => {
@@ -66,6 +70,8 @@ function Header() {
                   setClickCloseArrow(false);
                 }}
               />
+              </div>
+            </div>
     </div>
     </>
   );
@@ -80,11 +86,22 @@ const MenuBox = styled.div`
   height: 100vh;
   transition: all 1s ease;
   background-color: rgba(0, 0, 0, 0.8);
+  z-index : 1000000;
 
   ${(props) =>
     props.clickOpenArrow &&
     css`
-      width: 50%;
+    @media only screen and (min-width: 320px){
+      width : 50%
+    }
+      @media only screen and (min-width: 768px){
+        width : 40%
+
+      }
+      @media only screen and (min-width: 1024px){
+        width : 20%
+        
+      }
       height: 100vh;
     `}
 `;

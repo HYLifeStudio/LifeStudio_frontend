@@ -1,0 +1,72 @@
+.mainNavbarWrapper {
+  width: 100%;
+  border-bottom: 1px solid#707070;
+  display: flex;
+  justify-content: center;
+}
+
+.mainNavbarUl {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+}
+.NavBarContentWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width : 90%;
+}
+.StudioContentWrapper{
+  width : 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sortPillWrapper{
+  width : 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+@media all and (min-width: 320px) {
+  .mainNavbarLi {
+    width: 5.752rem;
+    text-align: center;
+    .mainNavbarMenu {
+      width: 3.438rem;
+      height: 0.938rem;
+      font-family: YDIYGO350;
+      font-size: 0.75rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2;
+      letter-spacing: normal;
+      text-align: left;
+      color: #818181;
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .mainNavbarLi {
+    width: 5.752rem;
+    text-align: center;
+    .mainNavbarMenu {
+      width: 3.438rem;
+      height: 0.938rem;
+      font-family: YDIYGO350;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #818181;
+    }
+  }
+}
+
+.mainNavbarSelected {
+  border-bottom: 1px solid black;
+}
