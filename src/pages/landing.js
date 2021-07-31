@@ -1,11 +1,11 @@
 import Reacts from 'react';
-import orangelogo from './인생사진관로고-주황.png';
-import greylogo from './인생사진관-로고.png';
+import orangelogo from '../images/lifestudio_logo_orange.png';
+import greylogo from '../images/lifestudio_logo.png';
 import arrow from '../images/top-right-arrow.png';
-import sajin1 from './sajin1.JPG';
-import insta from './insta.png';
-import twitter from './twitter.png';
-import facebook from './facebook.png';
+import sajin1 from '../images/sajin1.JPG';
+import insta from '../images/insta.png';
+import twitter from '../images/twitter.png';
+import facebook from '../images/facebook.png';
 import { Route } from 'react-router-dom';
 import "./scss/landing.scss";
 
