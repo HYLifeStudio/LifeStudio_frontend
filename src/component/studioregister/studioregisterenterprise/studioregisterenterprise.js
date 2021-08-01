@@ -23,7 +23,6 @@ function StudioRegisterEnterprise(){
                     <div className="studioRegisterEnterfileBox">
                         <label>
                             사업자 등록증*
-                            
                         </label>
                         <StudioFileUploadSingle/>
                         </div>
