@@ -9,6 +9,7 @@ import Landing from "./pages/landing";
 import {UserContextProvider} from "./context/user";
 import Register from './pages/register';
 import StudioRegister from './pages/studioRegister';
+import EditUser from './pages/editUser';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" component={Register}/>
         <Route path="/landing" component={Landing}/>
         <Route path="/studioregister" component={StudioRegister}/>
+        <Route path="/edituser" component={EditUser}/>
         <Route component={NotFound}/>
       </Switch>
     </BrowserRouter>
