@@ -1,0 +1,33 @@
+@media all {
+  .editUserBasicWrapper {
+    width: 80%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #000000;
+  }
+  .editUserBasicUpper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .editUserBasicContent {
+      width: 45%;
+    }
+  }
+  .editUserBasicContent {
+    margin-top: 0.8rem;
+    width: 100%;
+    .editUserBasicLabel {
+      margin-bottom: 0.5rem;
+      font-family: YDIYGO330;
+      font-size: 0.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #818181;
+    }
+  }
+}
