@@ -1,5 +1,8 @@
 import {useState,useEffect} from 'react';
+import {Route} from "react-router-dom";
 import "./studioregisterenterprise.scss";
+
+import StudioFileUploadSingle from "../studiofileupload_single/studiofileupload_single";
 
 function StudioRegisterEnterprise(){
     return(
@@ -17,8 +20,14 @@ function StudioRegisterEnterprise(){
                     <input className="studioRegisterEnterInput" type="text"placeholder="사업자 등록 번호를 입력하세요."/>
                 </div>
                 <div className="studioRegisterEnterBox">
-                    <div className="studioRegisterEnterLabel">사업자 등록증*</div>
-                    <input className="studioRegisterEnterfile" type="file"/>
+                    <div className="studioRegisterEnterfileBox">
+                        <label>
+                            사업자 등록증*
+                            
+                        </label>
+                        <StudioFileUploadSingle/>
+                        </div>
+                    
                 </div>
                 </div>
         </div>
