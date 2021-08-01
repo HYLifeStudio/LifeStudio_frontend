@@ -2,6 +2,7 @@ import React,{useContext, useState} from 'react';
 import Modal from 'react-modal';
 import { UserContext } from '../../context/user';
 import './alertModal.scss';
+import {Link} from 'react-router-dom';
 
 
   export default function AlertModal(){
@@ -44,10 +45,13 @@ import './alertModal.scss';
             <div className="modalLower">
               <div className="modalFindPW">비밀번호찾기</div>
               <div className="modalCS">고객센터</div>
-              <div className="modalSignUp">회원가입</div>
+              <div className="modalSignUp">
+                <Link className ="modalLink" to='/signup'>
+                  회원가입
+                </Link>
+              </div>
             </div>
             {/* <div className="modalmsg">{`${alertModal?.msg}`}</div> */}
-            {/* <button onClick={closeModal} className="modal_btn">close</button> */}
           </Modal>
         </div>
       );
