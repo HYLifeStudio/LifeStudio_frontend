@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import './studioList.scss';
-import p1 from "../../pages/sajin1.JPG";
+import p1 from "../../images/sajin1.JPG";
 
 const studioItems = [
   {

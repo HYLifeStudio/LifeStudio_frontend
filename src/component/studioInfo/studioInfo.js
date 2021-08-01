@@ -1,6 +1,6 @@
 import React from "react"
 import "./studioInfo.scss";
-import p1 from "../../pages/sajin1.JPG";
+import p1 from "../../images/sajin1.JPG";
 
 function StudioInfo(){
 
