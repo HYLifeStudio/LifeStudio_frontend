@@ -1,11 +1,13 @@
 import React, {useState} from "react";
-import "./studiofileupload_single.scss";
 
-function StudioFileUploadSingle(){
+import "./basicstudioImgsingle.scss";
+
+
+function BasicStudioImgSingle(){
     const [file,setFile] = useState({preview:"",raw:""});
 
     const handleChange = (e) =>{
-        console.log(e);
+        console.log(URL.createObjectURL(e.target.files[0]));
         if(e.target.files.length){
             setFile({
                 preview : URL.createObjectURL(e.target.files[0]),
@@ -19,26 +21,27 @@ function StudioFileUploadSingle(){
 
             return(
                 <>
-                    <div className="studioFile_singleWrapper">
-                        <div className="studioFile_singleContainer">
+                    <div className="basicStudioSingleImgWrapper">
+                        <div className="basicStudioSingleImgContainer">
                             {
                                 file.preview?(
-                                   <div className="file_singleContainer"> 
-                                        <img className="file_single_img" src={file.preview}/>
-                                        <div className="singleImgDel" onClick={()=>{handleDel()}}/>
+                                   <div className="basicStudioSingleImgBox"> 
+                                    {console.log(file.preview)}
+                                        <img className="basicStudioSingleImg" src={file.preview}/>
+                                        <div className="basicStudioSingleImgDel" onClick={()=>{handleDel()}}/>
                                     </div>
                                 ):(
-                                        <div className="file_empty_space">
+                                        <div className="basicStudioSingleImgEmpty">
                                         </div>       
                                 )
                             }
 
                         </div>
-                        <div className="singleFileInputWrapper">
-                            <label className="singlefilebtn" for="singlefile">
+                        <div className="basicStudioSingleImgInputWrapper">
+                            <label className="basicStudioSingleImgInputBtn" for="basicStudioSingleImg">
                                 <span>업로드</span>
                             </label>
-                            <input type="file" id="singlefile" style={{display:"none"}}
+                            <input type="file" id="basicStudioSingleImg" style={{display:"none"}}
                                 onChange={handleChange}
                             />
                         </div>
@@ -46,4 +49,4 @@ function StudioFileUploadSingle(){
                 </>
             );
         }
-export default StudioFileUploadSingle;
+export default BasicStudioImgSingle;
