@@ -8,7 +8,7 @@ const _ = require('lodash');
 registerLocale("ko", ko);
 
 const Calendar = () => {
-  const [startDate, setStartDate] = useState('');
+  const [birthday, setBirthday] = useState('');
   const years = _.range(1970, 2012);
   const months = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
 
@@ -55,10 +55,10 @@ const Calendar = () => {
       peekNextMonth
       maxDate={new Date("2011-12-31")}
       placeholderText="생년월일을 입력하세요"
-      selected={startDate}
+      selected={birthday}
       dateFormat="yyyy년 MM월 dd일"
       locale={ko}
-      onChange={date => setStartDate(date)}
+      onChange={date => setBirthday(date)}
       closeOnScroll={true}
       popperPlacement="auto"
     />
@@ -68,7 +68,6 @@ const Calendar = () => {
 function SignUp() {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
-  const [birth, setBirth] = useState('');
   const [email, setEmail] = useState('');
   const [emailCheck, setEmailCheck] = useState('');
   const [certification, setCertification] = useState('');
@@ -104,10 +103,14 @@ function SignUp() {
     }
   }
 
-  function handleCirtification(e) {
+  function handleCertification(e) {
     setCertification(e.target.value);
   }
 
+  function checkCertification(e) {
+    e.preventDefault();
+    console.log("이메일 체크 구현하세요~");
+  }
 
   function handleNickname(e) {
     setNickname(e.target.value);
@@ -190,8 +193,8 @@ function SignUp() {
                 <button className="signUpEmailBtn" onClick={sendEmail}>이메일 인증</button>
               </div>
               <div className="signUpCertificate">
-                <input className="signUpCertificationInput" placeholder=" 인증번호를 입력해주세요"/>
-                <button className="signUpCertificationBtn" onClick={handleCirtification}>인증 완료</button>
+                <input className="signUpCertificationInput" value={certification} onChange={handleCertification} placeholder=" 인증번호를 입력해주세요"/>
+                <button className="signUpCertificationBtn" onClick={checkCertification}>인증 완료</button>
               </div>
             </div>
             <div className="signUpContent signUpNickNameWrapper">
