@@ -1,0 +1,97 @@
+.basicStudioSingleImgWrapper{
+    width : 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+@media all and (min-width:1024px){
+    .basicStudioSingleImgWrapper{
+        .basicStudioSingleImgContainer{
+            width : 73rem;
+            height: 9rem;
+            border : 1px solid orange;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 1rem;
+            .basicStudioSingleImgBox{
+                width : 11rem;
+                height: 8rem;
+                position: relative;
+                margin-left: 2rem;
+                border : 1px solid orange;
+
+                //overflow: hidden;
+                .basicStudioSingleImg{
+                    object-fit: fill;
+                    position: absolute;
+                    width : 100%;
+                    height: 100%;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                }
+                .basicStudioSingleImgDel{
+                    width:2rem;
+                    height:2rem;
+                    position:relative;
+                    text-indent:-9999px;
+                    border-radius: 99px;
+                    //z-index: 10000000;
+                    background:rgb(184, 180, 180);
+                    left:85%;
+                    //top:1%;
+                    bottom : 5%;
+                }
+                .basicStudioSingleImgDel:before,.basicStudioSingleImgDel:after{
+                    content:'';
+                    width:1rem;
+                    height:0.1rem;
+                    position:absolute;
+                    left:50%;
+                    top:50%;
+                    border-radius:4px;
+                    background:rgb(1, 1, 12);
+                    z-index: 10000000;
+                }
+                .basicStudioSingleImgDel:before{
+                    transform:translate(-50%,-50%) rotate(-45deg)
+                }
+                .basicStudioSingleImgDel:after{
+                    transform:translate(-50%,-50%) rotate(45deg)
+                }
+            }
+            .basicStudioSingleImgEmpty{
+                width: 10rem;
+                height: 15rem;
+                //background-image: url(https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
+
+            }
+        }
+        .basicStudioSingleImgInputWrapper{
+            margin-top : 1rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-left: 2rem;
+            .basicStudioSingleImgInputBtn{
+                width : 10rem;
+                height: 3rem;
+                background-color: orange;
+                border-radius: 12px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span{
+                    color : white;
+                    font-weight: 600;
+                    font-size: 2rem;
+                }
+            }
+        }    
+    }
+}
