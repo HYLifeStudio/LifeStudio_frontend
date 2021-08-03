@@ -11,6 +11,7 @@ import Register from './pages/register';
 import StudioRegister from './pages/studioRegister';
 import EditUser from './pages/editUser';
 import StudioEdit from './pages/studioEdit';
+import UserReserveList from './pages/userReserveList';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/studioregister" component={StudioRegister}/>
         <Route path="/studioEdit" component={StudioEdit}/>
         <Route path="/edituser" component={EditUser}/>
+        <Route path="/userlist" component={UserReserveList}/>
         <Route component={NotFound}/>
       </Switch>
     </BrowserRouter>
