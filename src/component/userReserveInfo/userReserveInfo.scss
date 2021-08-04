@@ -1,0 +1,153 @@
+.userReserveInfoWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (min-width:500px){
+  .userReserveInfoTitle {
+    width: 95%;
+    margin: 0.8rem 0 0.8rem 0.5rem;
+    font-family: YDIYGO350;
+    font-size: 1.3rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121212;
+  }
+  .userReserveInfoMain {
+    width: 100%;
+    min-height: 95vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #efefef;
+    border-top: 1px solid #707070;
+  }
+  .userReserveInfoCard {
+    width: 98%;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .userReserveInfoContent {
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 2rem 0 2rem 0;
+      .userReserveInfoCardLeft {
+        display: flex;
+        flex-direction: column;
+        .userReserveInfoDate {
+          margin-bottom: 0.3rem;
+          font-family: YDIYGO330;
+          font-size: 1.188rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #818181;
+        }
+        .userReserveInfoStudio {
+          display: flex;
+          flex-direction: row;
+          .userReserveInfoImg {
+            width: 10rem;
+            height: 7.125rem;
+            border-radius: 16px;
+            background-color: hsla(34, 86%, 57%, 0.74);
+          }
+          .userReserveInfoText {
+            height: 7.125rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 0.5rem;
+            .userReserveInfoName {
+              font-family: YDIYGO340;
+              font-size: 1.2rem;
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              letter-spacing: normal;
+              line-height: 1.4;
+              text-align: left;
+              color: #121212;
+            }
+            .userReserveInfoOption {
+              font-family: YDIYGO320;
+              font-size: 1rem;
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              letter-spacing: normal;
+              line-height: 1.4;
+              text-align: left;
+              color: #121212;
+            }
+          }
+        }
+      }
+      .userReserveInfoCardRight {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .userReserveInfoDetail {
+          margin-bottom: 0.2rem;
+          width: 10rem;
+          height: 2.5rem;
+          border-radius: 7px;
+          background-color: #bebebe;
+          font-family: YDIYGO320;
+          font-size: 1rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: normal;
+          text-align: center;
+          color: #ffffff;
+          border: none;
+        }
+        .userReserveInfoReview {
+          margin-top: 0.2rem;
+          width: 10rem;
+          height: 2.5rem;
+          border-radius: 7px;
+          background-color: #ff9c15;
+          font-family: YDIYGO320;
+          font-size: 1rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: normal;
+          text-align: center;
+          color: #ffffff;
+          border: none;
+        }
+      }
+    }
+  }
+  .userReserveInfoNoMore {
+    min-height: 4rem;
+    margin-top: 2rem;
+    margin-bottom: auto;
+    font-family: YDIYGO350;
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ff9c15;
+  }
+}
