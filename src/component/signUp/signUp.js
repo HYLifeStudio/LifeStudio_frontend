@@ -79,6 +79,7 @@ function SignUp() {
   const [contact, setContact] = useState('');
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
+  const [pwCheck, setPwCheck] = useState();
   // const [startDate, setStartDate] = useState("");
 
   function handleName(e) {
@@ -138,6 +139,15 @@ function SignUp() {
   function handleRePassword(e) {
     setRePassword(e.target.value);
   }
+
+  useEffect(() => {
+    if (password !== rePassword) {
+      setPwCheck(false);
+    }
+    else {
+      setPwCheck(true);
+    }
+  }, [password, rePassword]);
 
   function handleTermAll(e) {
     setTermAll(e.target.checked);
@@ -202,7 +212,7 @@ function SignUp() {
               <input className="signUpNickname" value={nickname} placeholder=" 닉네임을 입력해주세요" onChange={handleNickname}/>
               <div className="signUpCheckNickname">
                 <button className="signUpNicknameBtn" onClick={(e) => {e.preventDefault(); setNicknameCheck(true); console.log('중복검사')}}>중복 검사</button>
-                <div className="signUpIsCheckedNickname" style={nicknameCheck === undefined ? {display:"none"} : {display:"flex"}}>{nicknameCheck ? "이용가능한 닉네임입니다" : "이미 사용 중인 닉네임입니다."}</div>
+                <div className="signUpIsCheckedNickname" style={nicknameCheck === undefined ? {display:"none"} : {display:"flex"}}>{nicknameCheck ? "이용 가능한 닉네임입니다." : "이용 불가능한 닉네임입니다."}</div>
               </div>
             </div>
             <div className="signUpContent">
@@ -216,6 +226,7 @@ function SignUp() {
             <div className="signUpContent">
               <div className="signUpLabel">비밀번호 확인*</div>
               <input className="signUpRePassword" type="password" value={rePassword} placeholder=" 영문/숫자 조합 8-20자로 입력하세요" onChange={handleRePassword}/>
+              <div className="signUpIsCheckedPW" style={pwCheck === undefined ? {display:"none"} : {display:"flex"}}>{pwCheck ? "" : "비밀번호가 일치하지 않습니다"}</div>
             </div>
           </div>
           <div className="signUpTerms">
