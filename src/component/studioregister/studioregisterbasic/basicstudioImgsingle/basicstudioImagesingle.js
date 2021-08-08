@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useState,useContext} from "react";
+import { StudioContext } from "../../../../context/studio";
 
 import "./basicstudioImgsingle.scss";
 
 
 function BasicStudioImgSingle(){
     const [file,setFile] = useState({preview:"",raw:""});
+    const {setRegisterStudioTitleImg} = useContext(StudioContext)
 
     const handleChange = (e) =>{
         console.log(URL.createObjectURL(e.target.files[0]));
@@ -14,9 +16,11 @@ function BasicStudioImgSingle(){
                 raw : e.target.files[0]
             });
         }
+        setRegisterStudioTitleImg(e.target.files[0]);
     }
     const handleDel = () => {
         setFile({preview:"",raw:""});
+        setRegisterStudioTitleImg("");
     }
 
             return(

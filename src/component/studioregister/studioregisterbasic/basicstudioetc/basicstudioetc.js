@@ -1,7 +1,10 @@
-import {useState,useRef} from 'react';
+import {useState,useRef,useContext} from 'react';
 import {useDetectOutsideClick} from "../../../sortPill/outsideEvent";
+import {StudioContext} from "../../../../context/studio";
 
 import "./basicstudioetc.scss";
+import { useEffect } from 'react/cjs/react.development';
+import StudioRegisterBasic from '../studioregisterbasic';
 
 function BasicStudioEtc(){
     const dropdownRef = useRef(null);
@@ -17,6 +20,15 @@ function BasicStudioEtc(){
     const selectMin = ['5','10','15','30','45','60','90','150'];
     const originalCount = ['1','2','3','4','5','6','7','8','9','10'];
     const printCount = ['1','2','3','4','5','6','7','8','9','10','15','20'];
+    const {registerStudio,setRegisterStudio} = useContext(StudioContext);
+    const inputHandler = (e,id) => {
+        
+        setRegisterStudio({
+            ...registerStudio,
+            [id] : e
+            
+        })
+    }
 
     return(
         <div className="basicStudioEtcWrapper">
@@ -38,13 +50,13 @@ function BasicStudioEtc(){
                         <div className="basicStudioEtcContentDropdownMenu">
                             <div className="basicStudioEtcContentDropdownMenuBox">
                                 <button onClick={shootClick} className="dropdownTrigger">
-                                    <span>0분</span>
+                                    <span>{registerStudio.shootingTime} 분</span>
                                     <div ref={dropdownRef} className={`shootTimeMenu ${shootTime? 'active':'inactive'}`}>
                                         <ul className="basicStudioDropdownUl">
                                             {
                                                 shootMin.map((item,key)=>{
                                                     return(
-                                                        <li className="basicStudioDropdownLi">{`${item} 분`}</li>
+                                                        <li className="basicStudioDropdownLi" onClick={()=>{inputHandler(item,"shootingTime")}}>{`${item} 분`}</li>
                                                     )
                                                 })
                                             }
@@ -59,13 +71,13 @@ function BasicStudioEtc(){
                         <div className="basicStudioEtcContentDropdownMenu">
                             <div className="basicStudioEtcContentDropdownMenuBox">
                                 <button onClick={selectClick} className="dropdownTrigger">
-                                    <span>0분</span>
+                                    <span>{registerStudio.retouchingTime} 분</span>
                                     <div ref={dropdownRef} className={`selectTimeMenu ${selectTime? 'active':'inactive'}`}>
                                         <ul className="basicStudioDropdownUl">
                                             {
                                                 selectMin.map((item,key)=>{
                                                     return(
-                                                        <li className="basicStudioDropdownLi">{`${item} 분`}</li>
+                                                        <li className="basicStudioDropdownLi" onClick={()=>{inputHandler(item,"retouchingTime")}}>{`${item} 분`}</li>
                                                     )
                                                 })
                                             }
@@ -87,13 +99,13 @@ function BasicStudioEtc(){
                         <div className="basicStudioEtcContentDropdownMenu">
                             <div className="basicStudioEtcContentDropdownMenuBox">
                                 <button onClick={originalClick} className="dropdownTrigger">
-                                    <span>0분</span>
+                                    <span>{registerStudio.originalProvide} 장</span>
                                     <div ref={dropdownRef} className={`originalMenu ${original? 'active':'inactive'}`}>
                                         <ul className="basicStudioDropdownUl">
                                             {
                                                 originalCount.map((item,key)=>{
                                                     return(
-                                                        <li className="basicStudioDropdownLi">{`${item} 장`}</li>
+                                                        <li className="basicStudioDropdownLi" onClick={()=>{inputHandler(item,"originalProvide")}}>{`${item} 장`}</li>
                                                     )
                                                 })
                                             }
@@ -108,13 +120,13 @@ function BasicStudioEtc(){
                         <div className="basicStudioEtcContentDropdownMenu">
                             <div className="basicStudioEtcContentDropdownMenuBox">
                                 <button onClick={printClick} className="dropdownTrigger">
-                                    <span>0분</span>
+                                    <span>{registerStudio.printPhoto} 장</span>
                                     <div ref={dropdownRef} className={`printMenu ${print? 'active':'inactive'}`}>
                                         <ul className="basicStudioDropdownUl">
                                             {
                                                 printCount.map((item,key)=>{
                                                     return(
-                                                        <li className="basicStudioDropdownLi">{`${item} 장`}</li>
+                                                        <li className="basicStudioDropdownLi" onClick={()=>{inputHandler(item,"printPhoto")}}>{`${item} 장`}</li>
                                                     )
                                                 })
                                             }
