@@ -6,6 +6,8 @@ import StudioRegisterBasic from "../component/studioregister/studioregisterbasic
 import StudioRegisterCall from "../component/studioregister/studioregistercall/studioregistercall";
 import StudioRegisterEnterprise from "../component/studioregister/studioregisterenterprise/studioregisterenterprise";
 import StudioRegisterAgree from "../component/studioregister/studioregisteragree/studioregisteragree";
+import StudioRegisterBtn from "../component/studioregister/studioregisterBtn/studioregisterBtn";
+
 
 import './scss/studioRegister.scss';
 
@@ -19,6 +21,7 @@ function StudioRegister() {
       <Route component={StudioRegisterCall}/>
       <Route component={StudioRegisterEnterprise}/>
       <Route component={StudioRegisterAgree}/>
+      <Route component={StudioRegisterBtn}/>
     </div>
     </>
   )

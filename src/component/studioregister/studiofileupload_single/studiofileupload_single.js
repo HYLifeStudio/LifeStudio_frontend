@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useState,useContext} from "react";
+import { StudioContext } from "../../../context/studio";
 import "./studiofileupload_single.scss";
+
 
 function StudioFileUploadSingle(){
     const [file,setFile] = useState({preview:"",raw:""});
-
+    const {setRegisterStudioEnterImg}=useContext(StudioContext); 
     const handleChange = (e) =>{
         console.log(e);
         if(e.target.files.length){
@@ -12,9 +14,11 @@ function StudioFileUploadSingle(){
                 raw : e.target.files[0]
             });
         }
+        setRegisterStudioEnterImg(e.target.files[0]);
     }
     const handleDel = () => {
         setFile({preview:"",raw:""});
+        setRegisterStudioEnterImg("");
     }
 
             return(
