@@ -13,6 +13,7 @@ import EditUser from './pages/editUser';
 import StudioEdit from './pages/studioEdit';
 import UserReserveList from './pages/userReserveList';
 import { StudioContextProvider } from './context/studio';
+import Reserve from './pages/reserve';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/studioEdit" component={StudioEdit}/>
             <Route path="/edituser" component={EditUser}/>
             <Route path="/userlist" component={UserReserveList}/>
+            <Route path="/reserve" component={Reserve}/>
             <Route component={NotFound}/>
           </Switch>
         </BrowserRouter>
