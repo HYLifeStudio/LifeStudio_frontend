@@ -1,0 +1,71 @@
+.likedPhotosWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (min-width:500px){
+  .likedPhotosTitle {
+    width: 95%;
+    margin: 0.8rem 0 0.8rem 0.5rem;
+    font-family: YDIYGO350;
+    font-size: 1.3rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121212;
+  }
+  .likedPhotosMain {
+    width: 100%;
+    min-height: 95vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #efefef;
+    border-top: 1px solid #707070;
+  }
+  .likedPhotosCardWrapper {
+    max-width: 70rem;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .likedPhotosCard {
+    margin: 1rem 1rem 1rem 1rem;
+    width : 20rem;
+    height: 20rem;
+    overflow: hidden;
+    position: relative;
+    &:hover{
+      -webkit-box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5);
+      box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5);
+    }
+    .likedPhotosImg {
+      object-fit: cover;
+      position: absolute;
+      width : 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .likedPhotoDelete {
+      width: 1.5rem;
+      height: 1.5rem;
+      position: relative;
+      z-index: 10000;
+      left : 92%;
+      top: 5%;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+}
