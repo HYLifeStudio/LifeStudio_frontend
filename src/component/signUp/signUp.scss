@@ -54,7 +54,7 @@
     flex-direction: column;
     align-items: center;
     width: 11rem;
-    .signUpName, .signUpGender, .signUpBirth {
+    .signUpName, .signUpSex, .signUpBirth {
       width: 100%;
       border-bottom: solid 0.1rem #e8e8e8;
     }
@@ -311,7 +311,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    .signUpName, .signUpGender {
+    .signUpName, .signUpSex {
       width: 45%;
       border-bottom: solid 0.1rem #707070;
     }

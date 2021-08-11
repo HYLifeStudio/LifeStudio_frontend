@@ -67,7 +67,7 @@ const Calendar = () => {
 
 function SignUp() {
   const [name, setName] = useState('');
-  const [gender, setGender] = useState('');
+  const [sex, setSex] = useState('');
   const [email, setEmail] = useState('');
   const [emailCheck, setEmailCheck] = useState('');
   const [certification, setCertification] = useState('');
@@ -85,8 +85,8 @@ function SignUp() {
     setName(e.target.value);
   }
 
-  function handleGender(e) {
-    setGender(e.target.value);
+  function handleSex(e) {
+    setSex(e.target.value);
   }
 
   function handleEmail(e) {
@@ -172,9 +172,9 @@ function SignUp() {
               <div className="signUpLabel">이름*</div>
               <input className="signUpNameInput" type="text" value={name} placeholder=" 이름을 입력하세요." onChange={handleName}/>
             </div>
-            <div className="signUpContent signUpGender">
+            <div className="signUpContent signUpSex">
               <div className="signUpLabel">성별*</div>
-              <select className="signUpGenderSelect" value={gender} onChange={handleGender}>
+              <select className="signUpSexSelect" value={sex} onChange={handleSex}>
                 <option value="" disabled hidden>성별을 입력하세요</option>
                 <option value="male">남자</option>
                 <option value="female">여자</option>
