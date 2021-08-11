@@ -1,0 +1,186 @@
+.basicStudioEtcWrapper{
+    width : 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media all and (min-width:1024px){
+    .basicStudioEtcWrapper{
+        .basicStudioEtcTitleContainer{
+            width : 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: flex-start;
+            margin-top: 2rem;
+            .basicStudioEtcTitleBig{
+                font-size: 2rem;
+                font-weight: 600;
+            }
+
+        }
+        .basicStudioEtcContentContainer{
+            width : 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 4rem;
+            
+            .basicStudioEtcContentBox{
+                width : 90%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .basicStudioEtcContentTitle{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    margin-right: 3rem;
+                    width : 10rem;
+                    span{
+                        font-size: 1rem;
+                        font-weight: 600;
+                    }
+                }
+                .basicStudioEtcContentDropdownBox{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 2rem;
+                    margin-left: 4rem;
+                    margin-bottom: 2rem;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    .basicStudioEtcContentDropdownTitle{
+                        margin-right: 2rem;
+                        width : 20%;
+                        span{
+                            font-size: 1rem;
+                            font-weight: 600;
+                        }
+                    }
+                    .basicStudioEtcContentDropdownMenu{
+                        margin-right: 2rem;
+                        .basicStudioEtcContentDropdownMenuBox{
+                            display: flex;
+                            flex-direction: column;
+                            .dropdownTrigger{
+                                background: #818181;
+                                border-radius: 90px;
+                                width: 6rem;
+                                height: 2rem;
+                                cursor: pointer;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                                border: none;
+                                transition: box-shadow 0.4s ease;
+                                margin-right: 2rem;
+                                .shootTimeMenu{
+                                    display: block;
+                                    background: #818181;
+                                    border-radius: 8px;
+                                    position: absolute;
+                                    top : 122.5%;
+                                    right: 69.5%;
+                                    //left : 2%;
+                                    width: 8rem;
+                                    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+                                    z-index: 10000000;  
+
+                                }
+                                .shootTimeMenu.active{
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                                .selectTimeMenu{
+                                    display: block;
+                                    background: #818181;
+                                    border-radius: 8px;
+                                    position: absolute;
+                                    top : 122.5%;
+                                    right: 53.2%;
+                                    //left : 2%;
+                                    width: 8rem;
+                                    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+                                    z-index: 10000000;  
+
+                                }
+                                .selectTimeMenu.active{
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                                .originalMenu{
+                                    display: block;
+                                    background: #818181;
+                                    border-radius: 8px;
+                                    position: absolute;
+                                    top : 135.5%;
+                                    right: 69.5%;
+                                    //left : 2%;
+                                    width: 8rem;
+                                    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+                                    z-index: 10000000;  
+
+                                }
+                                .originalMenu.active{
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                                .printMenu{
+                                    display: block;
+                                    background: #818181;
+                                    border-radius: 8px;
+                                    position: absolute;
+                                    top : 135.5%;
+                                    right: 53.2%;
+                                    //left : 2%;
+                                    width: 8rem;
+                                    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+                                    z-index: 10000000;  
+
+                                }
+                                .printMenu.active{
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                                .basicStudioDropdownUl{
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    .basicStudioDropdownLi{
+                                        height: 2rem;
+                                        width : 100%;
+                                        border-bottom: 1px solid #7e7d7d;
+                                        text-align: center;
+                                        padding-top: 0.8rem;
+                                    }
+                                }
+
+                            }
+                            
+                        }
+                    }
+                }
+                
+                
+
+            }
+        }
+    }
+} 

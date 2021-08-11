@@ -56,11 +56,13 @@
 
 @media all and (min-width:1024px){
     .pill-container{
+        width: 100%;
         margin-top: 1rem;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        
         .pillBox{
             display: flex;
             flex-direction: column;
@@ -78,10 +80,11 @@
                 transition: box-shadow 0.4s ease;
                 margin-right: 2rem;
                 .colormenu {
+                    display: block;
                     background: #818181;
                     border-radius: 8px;
                     position: absolute;
-                    top : 25%;
+                    top : 24.5%;
                     right: 83.8%;
                     //left : 2%;
                     width: 8rem;
@@ -99,7 +102,7 @@
                       background: #818181;
                       border-radius: 8px;
                       position: absolute;
-                      top : 25%;
+                      top : 24.5%;
                       right: 76.2%;
                       width: 8rem;
                       box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
@@ -116,7 +119,7 @@
                       background: #818181;
                       border-radius: 8px;
                       position: absolute;
-                      top : 25%;
+                      top : 24.5%;
                       right: 68.5%;
                       width: 8rem;
                       box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);

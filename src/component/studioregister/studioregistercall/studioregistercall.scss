@@ -1,0 +1,118 @@
+.studioRegisterCallWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width : 90%;
+    margin-top: 2rem;
+}
+
+@media all and (min-width:1024px){
+    .studioRegisterCallWrapper{
+        .studioRegisterCallTitle{
+            width : 100%;
+            border-bottom: 1px solid black;
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            font-weight: 400;
+        }
+        .studioRegisterCallContainer{
+            width : 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .studioRegisterCallBox{
+                width : 100%;
+                .studioRegisterCallLabel{
+                    font-size: 1rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+                .studioRegisterCallInput{
+                    &:focus{
+                        outline: none;
+                        border: 2px solid rgb(255, 153, 0);
+                        border-radius: 15px;
+                    }
+                    width : 100%;
+                    height: 3rem;
+                    margin-bottom: 1rem;
+                    border-radius: 15px;
+                    border : 1px solid orange;
+                    cursor: pointer;
+                    
+                }
+                .studioRegisterEmailBox{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    .studioRegisterEmailInput{
+                        &:focus{
+                            outline: none;
+                            border: 2px solid rgb(255, 153, 0);
+                            border-radius: 15px;
+                        }
+                        width : 85%;
+                        height: 3rem;
+                        margin-bottom: 1rem;
+                        border-radius: 15px;
+                        border : 1px solid orange;
+                        cursor: pointer;
+                    }
+                    .studioRegisterCallInputBtn{
+                        width : 15%;
+                        height: 3rem;
+                        border-radius: 15px;
+                        cursor: pointer;
+                        background-color: orange;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        span{
+                            color : white;
+                            font-weight: 600;
+                        }
+                    }
+                    .studioRegisterAuth{
+                        display: none;
+                        &:focus{
+                            outline: none;
+                            border: 2px solid rgb(255, 153, 0);
+                            border-radius: 15px;
+                        }
+                        width : 85%;
+                        height: 3rem;
+                        margin-bottom: 1rem;
+                        border-radius: 15px;
+                        border : 1px solid orange;
+                        cursor: pointer;
+                    }
+                    .studioRegisterAuthBtn{
+                        width : 15%;
+                        height: 3rem;
+                        border-radius: 15px;
+                        cursor: pointer;
+                        background-color: orange;
+                        display: none;
+                        span{
+                            color : white;
+                            font-weight: 600;
+                        }
+                    }
+                    .studioRegisterAuth.active{
+                        display: block;
+                    }
+                    .studioRegisterAuthBtn.active{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+                
+                
+                
+            }
+        }
+    }
+}

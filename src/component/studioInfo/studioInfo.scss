@@ -152,49 +152,28 @@
             }
         }
     }
-    .studioInfoPicContainer{
-        width: 100%;
-        height: 100vh;
+    .studioInfoContainer{
         display: flex;
         flex-direction: row;
-        align-items: center;
-        .studioInfoPicLarge{
-            width : 70%;
-            height: 80%;
-            border-radius: 10px;
-            background-color: rgb(80, 80, 73);
-            overflow: hidden;
-            position: relative;
-            &:hover{
-                -webkit-box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5); 
-            box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5);
-            }
-            img{
-                position: absolute;
-                width : 100%;
-                height: 100%;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-        .studioInfoPicSmall{
-            width : 30%;
-            height: 80%;
+        justify-content: center;
+        //align-items: center;
+        margin-top: 1rem;
+        .studioInfoPicContainer{
+            width: 60%;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            .studioInfoPicSmallComponents{
-                width : 90%;
-                height: 40%;
-                background-color: rgb(80, 80, 73);
+            .studioInfoPicLarge{
+                width : 95%;
+                height: 70%;
                 border-radius: 10px;
-                margin-bottom: 0.5rem;
+                background-color: rgb(80, 80, 73);
                 overflow: hidden;
                 position: relative;
                 &:hover{
                     -webkit-box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5); 
-                    box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5);
+                box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5);
                 }
                 img{
                     position: absolute;
@@ -205,61 +184,94 @@
                     transform: translate(-50%, -50%);
                 }
             }
+            .studioInfoPicSmall{
+                width : 95%;
+                height: 30%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
 
-        }
-    }
-    .studioInfoStoryContainer{
-        width: 100%;
-        height: 60vh;
-        border : 1px solid #4d4b4b;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding : 0.1rem;
-        .studioInfoStoryLarge{
-            width : 50%;
-            height: 80%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            .studioInfoStoryTitle{
-                width: 90%;
-                height: 25%;
-                font-weight: 800;
-                font-size: 3rem;
-            }
-            .studioInfoStoryContent{
-                width : 90%;
-                height: 75%;
-                font-weight: 400;
-                font-size: 1.5rem;
+
+                .studioInfoPicSmallComponents{
+                    width : 30%;
+                    height: 80%;
+                    background-color: rgb(80, 80, 73);
+                    border-radius: 10px;
+                    overflow: hidden;
+                    position: relative;
+                    &:hover{
+                        -webkit-box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5); 
+                        box-shadow: 0px 8px 16px -1px rgba(100,110,203,0.5);
+                    }
+                    img{
+                        position: absolute;
+                        width : 100%;
+                        height: 100%;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
             }
         }
-        .studioInfoStorySmall{
-            width : 50%;
-            height: 80%;
+        .studioInfoStoryContainer{
+            width: 39%;
+            height: 73vh;
+            border : 1px solid #4d4b4b;
             border-radius: 10px;
             display: flex;
-            align-items: center;
             flex-direction: column;
-            .studioInfoStorySmallBox{
-                width : 100%;
-                height : 15vh;
-                
-                .studioInfoStorySmallBoxTitle{
-                    width : 100%;
-                    font-weight: 600;
-                    font-size: 3rem;
-                    margin-bottom: 0.5rem;
+            align-items: center;
+            //justify-content: center;
+            padding : 1rem;
+            .studioInfoStoryLarge{
+                width : 90%;
+                height: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+    
+                .studioInfoStoryTitle{
+                    width: 100%;
+                    height: 25%;
+                    font-weight: 800;
+                    font-size: 2rem;
                 }
-                .studioInfoStorySmallBoxContent{
+                .studioInfoStoryContent{
                     width : 100%;
-                    font-weight: 100;
-                    font-size: 1.2rem;
-                    margin-bottom: 2rem;
+                    height: 75%;
+                    font-weight: 400;
+                    font-size: 1.5rem;
+                    text-align: justify;
+                }
+            }
+            .studioInfoStorySmall{
+                width : 90%;
+                height: 60%;
+                border-radius: 10px;
+                display: inline-flex;
+                align-items: center;
+                flex-direction: column;
+  
+                .studioInfoStorySmallBox{
+                    width : 100%;
+                    height : 10%;
+                    
+                    .studioInfoStorySmallBoxTitle{
+                        width : 100%;
+                        font-weight: 600;
+                        font-size: 1.5rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    .studioInfoStorySmallBoxContent{
+                        width : 100%;
+                        font-weight: 100;
+                        font-size: 1rem;
+                        margin-bottom: 2rem;
+                    }
                 }
             }
         }
