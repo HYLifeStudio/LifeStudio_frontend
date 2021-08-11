@@ -1,1 +1,1 @@
-export const url = "http://3.19.236.237:8080/api";
+export const url = "https://seunggwon.org/api";

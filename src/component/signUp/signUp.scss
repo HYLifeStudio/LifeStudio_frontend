@@ -428,7 +428,7 @@
       .signUpIsCheckedNickname {
         width: auto;
         font-family: YDIYGO320;
-        font-size: 0.313rem;
+        font-size: 0.8rem;
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
@@ -436,6 +436,19 @@
         text-align: left;
         color: #ff9c15;
       }
+    }
+    .signUpIsCheckedPW {
+      height: 1rem;
+      margin-top: 1rem;
+      width: auto;
+      font-family: YDIYGO320;
+      font-size: 0.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ff9c15;
     }
   }
   .signUpTerms {

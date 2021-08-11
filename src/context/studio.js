@@ -1,8 +1,12 @@
-import React, {createContext, useState} from 'react';
-
+import React, {createContext, useState,useEffect} from 'react';
+import {_GetAllStudio, _GetIndividualStudio} from '../api/api';
 const StudioContext = createContext();
 
 const StudioContextProvider = ({children}) => {
+    useEffect(()=>{
+        getAllStudio();
+        console.log(1);
+    },[])
 const [registerStudio,setRegisterStudio]=useState({
     studioName : "",
     cityDistrict : "",
@@ -38,6 +42,55 @@ const [registerStudioSubImg_1,setRegisterStudioSubImg_1]=useState("");
 const [registerStudioSubImg_2,setRegisterStudioSubImg_2]=useState("");
 const [registerStudioSubImg_3,setRegisterStudioSubImg_3]=useState("");
 const [registerStudioEnterImg,setRegisterStudioEnterImg] = useState("");
+const [allStudio,setAllStudio] = useState({
+    status : 'idle',
+    data : null,
+});
+const [selectStudio,setSelectStudio] = useState({
+    status : 'idle',
+    data : null,
+});
+
+const getAllStudio=async()=>{
+    let res = await _GetAllStudio();
+    console.log(res);
+    try{
+        setAllStudio({
+            status:'pending',
+            data:null,
+        });
+        setAllStudio({
+            status:'resolved',
+            data: res.list
+        });
+    }catch(e){
+        setAllStudio({
+            status:'rejected',
+            data:null
+        })
+    }
+}
+const getIndividualStudio=async(n)=>{
+    let res = await _GetIndividualStudio(n);
+    console.log(res);
+    try{
+        setSelectStudio({
+            status:'pending',
+            data:null,
+        });
+        setSelectStudio({
+            status:'resolved',
+            data: res
+        });
+    }catch(e){
+        setSelectStudio({
+            status:'rejected',
+            data:null
+        })
+    }
+}
+
+
 
     return <StudioContext.Provider
             value={{
@@ -46,7 +99,10 @@ const [registerStudioEnterImg,setRegisterStudioEnterImg] = useState("");
                 registerStudioSubImg_1,setRegisterStudioSubImg_1,
                 registerStudioSubImg_2,setRegisterStudioSubImg_2,
                 registerStudioSubImg_3,setRegisterStudioSubImg_3,
-                registerStudioEnterImg,setRegisterStudioEnterImg
+                registerStudioEnterImg,setRegisterStudioEnterImg,
+                allStudio,setAllStudio,
+                selectStudio,setSelectStudio,
+                getIndividualStudio,
             }}
     >
         {children}

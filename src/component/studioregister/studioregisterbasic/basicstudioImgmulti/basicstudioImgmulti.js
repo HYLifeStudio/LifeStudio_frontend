@@ -29,7 +29,7 @@ function BasicStudioImgSingle(){
                 raw : e.target.files[0]
             });
         }
-        setRegisterStudioSubImg_1(e.target.files[0]);
+        setRegisterStudioSubImg_1(e.target.files[0].name);
     }
     const handleDel_1 = () => {
         setFile_1({preview:"",raw:""});
@@ -44,7 +44,7 @@ function BasicStudioImgSingle(){
                 raw : e.target.files[0]
             });
         }
-        setRegisterStudioSubImg_2(e.target.files[0]);
+        setRegisterStudioSubImg_2(e.target.files[0].name);
     }
     const handleDel_2 = () => {
         setFile_2({preview:"",raw:""});
@@ -59,7 +59,7 @@ function BasicStudioImgSingle(){
                 raw : e.target.files[0]
             });
         }
-        setRegisterStudioSubImg_3(e.target.files[0]);
+        setRegisterStudioSubImg_3(e.target.files[0].name);
     }
     const handleDel_3 = () => {
         setFile_3({preview:"",raw:""});
