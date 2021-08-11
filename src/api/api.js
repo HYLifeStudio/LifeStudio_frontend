@@ -29,3 +29,23 @@ export const _ImgToDb = async(f)=> {
         alert(e);
     }
 }
+
+export const _GetIndividualStudio = async(n)=>{
+    try{
+        const res = await axios.get(`${url}/studios/${n}`);
+        console.log(res);
+        return res.data;
+    }catch(e){
+
+    }
+}
+
+export const _GetAllStudio = async()=>{
+    try{
+        const res = await axios.get(`${url}/studios`);
+        console.log(res);
+        return res.data;
+    }catch(e){
+
+    }
+}

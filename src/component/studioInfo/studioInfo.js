@@ -1,33 +1,46 @@
-import React from "react"
+import React, { useContext } from "react"
 import "./studioInfo.scss";
 import p1 from "../../images/sajin1.JPG";
+import {StudioContext} from "../../context/studio";
+import Loading from "../../component/loading/loading";
 
-function StudioInfo(){
-
+function StudioInfo({match}){
+    const {no} = match.params;
+    const {selectStudio} = useContext(StudioContext);
+    
+    switch(selectStudio.status){
+        case 'pending':
+          return(<Loading/>);
+        case 'idel':
+          return(<Loading/>);
+        case 'rejected':
+          return(<Loading/>);
+        default:
+            console.log(selectStudio);
     return(
         <>
         <div className="studioInfoWrapper">
             <div className="studioInfoNameContainer">
-                멋쟁이 사진관
+                {selectStudio.data.data.studioName}
             </div>
             <div className="studioInfoLine"></div>
             <div className="studioInfoAddressContainer">
-            오목교역 3번출구 8분 거리  양천구 목동동로 177 2차 306호
+            {selectStudio.data.data.address.detailAddress}
             </div>
             <div className="studioInfoCategoryContainer">  
                 <div className="studioInfoCategoryComponents">
                     <div className="studioInfoCategoryText">
-                    셀프스튜디오
+                    {selectStudio.data.data.studioType}
                     </div>
                 </div>
                 <div className="studioInfoCategoryComponents">
                     <div className="studioInfoCategoryText">
-                    컬러
+                    {selectStudio.data.data.tag.background?`색상`:`흑백`}
                     </div>
                 </div>
                 <div className="studioInfoCategoryComponents">
                     <div className="studioInfoCategoryText">
-                    갈색
+                    {selectStudio.data.data.tag.color}
                     </div>
                 </div>
 
@@ -56,10 +69,7 @@ function StudioInfo(){
                             사진관 소개
                         </div>
                         <div className="studioInfoStoryContent">
-                        그 누구의 방해없이 혼자 스스로 자유롭게
-                        전문가의 장비와 시설을 사용하여
-                        고퀄리티의 화보급 사진을 찍으실 수 있습니다.
-                        사진관을 넘어선 하나의 트랜디한 문화 공간입니다.
+                        {selectStudio.data.data.bio}
                         </div>
                     </div>
                     <div className="studioInfoStorySmall">
@@ -92,6 +102,7 @@ function StudioInfo(){
         </div>
         </>
     )
+    }
 }
 
 export default StudioInfo;
