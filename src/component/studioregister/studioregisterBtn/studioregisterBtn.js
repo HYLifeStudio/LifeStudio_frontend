@@ -10,6 +10,11 @@ function StudioRegisterBtn(){
     const [subImg_2,setSubImg_2] = useState(undefined)
     const [subImg_3,setSubImg_3] = useState(undefined)
     const [enterImg,setEnterImg] = useState(undefined)
+    const title= new FormData();
+    const sub_1=new FormData();
+    const sub_2=new FormData();
+    const sub_3=new FormData();
+    const enter=new FormData();
     
 
     const [tmp,setTmp] = useState({
@@ -45,13 +50,18 @@ function StudioRegisterBtn(){
 )
     
     const submit = () => {
-        console.log(tmp);      
+        console.log(tmp); 
+        title.append('file',registerStudioTitleImg);
+        sub_1.append('file',registerStudioSubImg_1);
+        sub_2.append('file',registerStudioSubImg_2);
+        sub_3.append('file',registerStudioSubImg_3);
+        enter.append('file',registerStudioEnterImg);     
         try{
             _registerStudio(tmp).then((res)=>{
                 console.log(res);
                 const id = res.data.id;
                 //title
-            _imageUpload(registerStudioTitleImg).then((res)=>{
+            _imageUpload(title).then((res)=>{
                 return res.data;
             }).then((data)=>{
                 setTitleImg({
@@ -68,7 +78,7 @@ function StudioRegisterBtn(){
                 }
             })
             //sub
-            _imageUpload(registerStudioSubImg_1).then((res)=>{
+            _imageUpload(sub_1).then((res)=>{
                 return res.data;
             }).then((data)=>{
                 setSubImg_1({
@@ -84,7 +94,7 @@ function StudioRegisterBtn(){
                     alert(e);
                 }
             })
-            _imageUpload(registerStudioSubImg_2).then((res)=>{
+            _imageUpload(sub_2).then((res)=>{
                 return res.data;
             }).then((data)=>{
                 setSubImg_2({
@@ -100,7 +110,7 @@ function StudioRegisterBtn(){
                     alert(e);
                 }
             })
-            _imageUpload(registerStudioSubImg_3).then((res)=>{
+            _imageUpload(sub_3).then((res)=>{
                 return res.data;
             }).then((data)=>{
                 setSubImg_3({
@@ -117,7 +127,7 @@ function StudioRegisterBtn(){
                 }
             })
             //enter
-            _imageUpload(registerStudioEnterImg).then((res)=>{
+            _imageUpload(enter).then((res)=>{
                 return res.data;
             }).then((data)=>{
                 setEnterImg({

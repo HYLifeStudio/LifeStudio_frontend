@@ -16,7 +16,7 @@ function BasicStudioImgSingle(){
                 raw : e.target.files[0]
             });
         }
-        setRegisterStudioTitleImg(e.target.files[0].name);
+        setRegisterStudioTitleImg(e.target.files[0]);
     }
     const handleDel = () => {
         setFile({preview:"",raw:""});
