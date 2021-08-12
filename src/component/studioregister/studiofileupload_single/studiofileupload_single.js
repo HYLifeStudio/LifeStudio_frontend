@@ -14,7 +14,7 @@ function StudioFileUploadSingle(){
                 raw : e.target.files[0]
             });
         }
-        setRegisterStudioEnterImg(e.target.files[0].name);
+        setRegisterStudioEnterImg(e.target.files[0]);
     }
     const handleDel = () => {
         setFile({preview:"",raw:""});
