@@ -1,96 +1,144 @@
-import {useContext} from 'react';
+import {useContext,useState} from 'react';
 import {_registerStudio,_imageUpload,_ImgToDb} from "../../../api/api";
 import { StudioContext } from '../../../context/studio';
 import "./studioregisterBtn.scss";
 
 function StudioRegisterBtn(){
     const {registerStudio,registerStudioTitleImg,registerStudioSubImg_1,registerStudioSubImg_2,registerStudioSubImg_3,registerStudioEnterImg} = useContext(StudioContext);
-    let formData = new FormData();
-    let titleImgFormData = new FormData();
-    let subImgFormData_1 = new FormData();
-    let subImgFormData_2 = new FormData();
-    let subImgFormData_3 = new FormData();
-    let enterImgFormData = new FormData();
+    const [titleImg,setTitleImg] = useState(undefined)
+    const [subImg_1,setSubImg_1] = useState(undefined)
+    const [subImg_2,setSubImg_2] = useState(undefined)
+    const [subImg_3,setSubImg_3] = useState(undefined)
+    const [enterImg,setEnterImg] = useState(undefined)
+    const title= new FormData();
+    const sub_1=new FormData();
+    const sub_2=new FormData();
+    const sub_3=new FormData();
+    const enter=new FormData();
+    
+
+    const [tmp,setTmp] = useState({
+            
+        "studioName" : "인생사진관2",
+        "cityDistrict" : "서울시 성동구",
+        "streetAddress" : "목동동로 177 2차 306호",
+        "nearBy" : "오목교역 3번출구 8분거리",
+        "studioType" : "SELF",
+        "color" : "COLOR",
+        "background" : true,
+        "monday" : true,
+        "tuesday" : true,
+        "wednesday" : true,
+        "thursday" : true,
+        "friday" : true,
+        "saturday" : false,
+        "sunday" : false,
+        "openTime" : "11:00",
+        "closeTime" : "23:00",
+        "shootingTime" : 30,
+        "retouchingTime" : 15,
+        "originalProvide" : true,
+        "printPhoto" : 3,
+        "itemExist" : true,
+        "item" : "각종 머리띠 (20종 이상 구비), 가면, 가발 \n 교복 및 드레스, 정장 의상 대여 가능\n 4종 나무 의자, 벤치, 나무 박스, ",
+        "bio" : "그 누구의 방해없이 혼자 스스로 자유롭게 \n 전문가의 장비와 시설을 사용하여\n 고퀄리티의 화보급 사진을 찍으실 수 있습니다.\n 사진관을 넘어선 하나의 트랜디한 문화 공간입니다.",
+        "shopNumber" : "032-224-5432",
+        "registrationNumber" : "22-444",
+        "managerName" : "윤승권",
+        "masterUserId" : 1
+    }
+)
     
     const submit = () => {
-        formData.append('data',JSON.stringify(registerStudio));
-        titleImgFormData('images',registerStudioTitleImg);
-        subImgFormData_1('images',registerStudioSubImg_1);
-        subImgFormData_2('images',registerStudioSubImg_2);
-        subImgFormData_3('images',registerStudioSubImg_3);
-        enterImgFormData('images',registerStudioEnterImg);
+        console.log(tmp); 
+        title.append('file',registerStudioTitleImg);
+        sub_1.append('file',registerStudioSubImg_1);
+        sub_2.append('file',registerStudioSubImg_2);
+        sub_3.append('file',registerStudioSubImg_3);
+        enter.append('file',registerStudioEnterImg);     
         try{
-            _registerStudio(formData).then((studio)=>{
-                const id = studio.data.id;
+            _registerStudio(tmp).then((res)=>{
+                console.log(res);
+                const id = res.data.id;
                 //title
-            _imageUpload(titleImgFormData).then((res)=>{
+            _imageUpload(title).then((res)=>{
                 return res.data;
             }).then((data)=>{
-                let f = new FormData();
-                f.append('studioId',id);
-                f.append('title',data.title);
-                f.append('url',data.url);
-                f.append('type','businessRegistration');
+                setTitleImg({
+                    "studioId" : data.studioId,
+                    'title' : data.title,
+                    'url': data.url,
+                    "type" : "representative"
+                })
                 try{
-                    _ImgToDb(f);
+                    titleImg &&
+                    _ImgToDb(titleImg);
                 }catch(e){
                     alert(e);
                 }
             })
             //sub
-            _imageUpload(subImgFormData_1).then((res)=>{
+            _imageUpload(sub_1).then((res)=>{
                 return res.data;
             }).then((data)=>{
-                let f = new FormData();
-                f.append('studioId',id);
-                f.append('title',data.title);
-                f.append('url',data.url);
-                f.append('type','advertisement');
+                setSubImg_1({
+                    "studioId" : data.studioId,
+                    'title' : data.title,
+                    'url': data.url,
+                    "type" : "advertisement"
+                })
                 try{
-                    _ImgToDb(f);
+                    subImg_1 &&
+                    _ImgToDb(subImg_1);
                 }catch(e){
                     alert(e);
                 }
             })
-            _imageUpload(subImgFormData_2).then((res)=>{
+            _imageUpload(sub_2).then((res)=>{
                 return res.data;
             }).then((data)=>{
-                let f = new FormData();
-                f.append('studioId',id);
-                f.append('title',data.title);
-                f.append('url',data.url);
-                f.append('type','advertisement');
+                setSubImg_2({
+                    "studioId" : data.studioId,
+                    'title' : data.title,
+                    'url': data.url,
+                    "type" : "advertisement"
+                })
                 try{
-                    _ImgToDb(f);
+                    subImg_2 &&
+                    _ImgToDb(subImg_2);
                 }catch(e){
                     alert(e);
                 }
             })
-            _imageUpload(subImgFormData_3).then((res)=>{
+            _imageUpload(sub_3).then((res)=>{
                 return res.data;
             }).then((data)=>{
-                let f = new FormData();
-                f.append('studioId',id);
-                f.append('title',data.title);
-                f.append('url',data.url);
-                f.append('type','advertisement');
+                setSubImg_3({
+                    "studioId" : data.studioId,
+                    'title' : data.title,
+                    'url': data.url,
+                    "type" : "advertisement"
+                })
                 try{
-                    _ImgToDb(f);
+                    subImg_3 &&
+                    _ImgToDb(subImg_3);
                 }catch(e){
                     alert(e);
                 }
             })
             //enter
-            _imageUpload(enterImgFormData).then((res)=>{
+            _imageUpload(enter).then((res)=>{
                 return res.data;
             }).then((data)=>{
-                let f = new FormData();
-                f.append('studioId',id);
-                f.append('title',data.title);
-                f.append('url',data.url);
-                f.append('type','businessRegistration');
+                setEnterImg({
+                    "studioId" : data.studioId,
+                    'title' : data.title,
+                    'url':data.url,
+                    "type" : "businessRegistration"
+                })
                 try{
-                    _ImgToDb(f);
+                    enterImg &&
+                    _ImgToDb(enterImg);
                 }catch(e){
                     alert(e);
                 }

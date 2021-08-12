@@ -9,7 +9,7 @@ function BasicStudioImgSingle(){
     const {setRegisterStudioTitleImg} = useContext(StudioContext)
 
     const handleChange = (e) =>{
-        console.log(URL.createObjectURL(e.target.files[0]));
+        console.log(e);
         if(e.target.files.length){
             setFile({
                 preview : URL.createObjectURL(e.target.files[0]),
@@ -30,7 +30,6 @@ function BasicStudioImgSingle(){
                             {
                                 file.preview?(
                                    <div className="basicStudioSingleImgBox"> 
-                                    {console.log(file.preview)}
                                         <img className="basicStudioSingleImg" src={file.preview}/>
                                         <div className="basicStudioSingleImgDel" onClick={()=>{handleDel()}}/>
                                     </div>

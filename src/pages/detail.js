@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Route } from 'react-router-dom';
 import "./scss/detail.scss";
 
@@ -9,9 +9,17 @@ import StudioReview from "../component/studioReview/studioReview";
 
 import AlertModal from "../component/alertmodal/alertModal";
 import { UserContext } from '../context/user';
+import { StudioContext } from '../context/studio';
 
-function Detail(){
+function Detail({history, location, match}){
     const {alertModal} = useContext(UserContext);
+    const {getIndividualStudio} = useContext(StudioContext);
+    
+    useEffect(()=>{
+        const { no } = match.params;
+        console.log(no);
+        getIndividualStudio(no);
+    },[])
     return(
         <div>
             <Route component={Header}/>

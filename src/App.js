@@ -14,6 +14,8 @@ import StudioEdit from './pages/studioEdit';
 import UserReserveList from './pages/userReserveList';
 import { StudioContextProvider } from './context/studio';
 import LikedList from './pages/likedList';
+import Reserve from './pages/reserve';
+
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={Main}/>
-            <Route path="/detail" component={Detail}/>
+            <Route path="/detail/:no" component={Detail}/>
             <Route path="/signup" component={Register}/>
             <Route path="/landing" component={Landing}/>
             <Route path="/studioregister" component={StudioRegister}/>
@@ -30,6 +32,7 @@ function App() {
             <Route path="/edituser" component={EditUser}/>
             <Route path="/userlist" component={UserReserveList}/>
             <Route path="/likedlist" component={LikedList}/>
+            <Route path="/reserve" component={Reserve}/>
             <Route component={NotFound}/>
           </Switch>
         </BrowserRouter>
