@@ -1,7 +1,6 @@
 import React from 'react';
 import './userReserveInfo.scss';
 import p1 from "../../images/sajin1.JPG";
-import { useEffect } from 'react/cjs/react.production.min';
 
 const reserveList = [
   {
