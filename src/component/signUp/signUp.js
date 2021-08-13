@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import DatePicker, { registerLocale } from 'react-datepicker';
-import { getYear, getMonth } from "date-fns";
+import { getYear, getMonth, format } from "date-fns";
 import {ko} from 'date-fns/esm/locale';
 import './signUp.scss'
+import { _registerUser, _sendEmail, _verifyEmail } from "../../api/api";
+import { useContext } from "react/cjs/react.development";
+import { UserContext } from "../../context/user";
 const _ = require('lodash');
 
 registerLocale("ko", ko);
 
 const Calendar = () => {
-  const [birthday, setBirthday] = useState('');
+  const { setRegisterUser ,registerUser } = useContext(UserContext);
   const years = _.range(1970, 2012);
   const months = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
 
@@ -55,10 +58,10 @@ const Calendar = () => {
       peekNextMonth
       maxDate={new Date("2011-12-31")}
       placeholderText="생년월일을 입력하세요"
-      selected={birthday}
+      selected={Date.parse(registerUser.birth)}
       dateFormat="yyyy년 MM월 dd일"
       locale={ko}
-      onChange={date => setBirthday(date)}
+      onChange={date => setRegisterUser({...registerUser, "birth": format(date, "yyyy-MM-dd")})}
       closeOnScroll={true}
       popperPlacement="auto"
     />
@@ -66,35 +69,53 @@ const Calendar = () => {
 };
 
 function SignUp() {
-  const [name, setName] = useState('');
-  const [sex, setSex] = useState('');
+  const { setRegisterUser ,registerUser } = useContext(UserContext);
   const [email, setEmail] = useState('');
-  const [emailCheck, setEmailCheck] = useState('');
-  const [certification, setCertification] = useState('');
+  const [emailCheck, setEmailCheck] = useState(false);
+  const [code, setCode] = useState('');
   const [termAll, setTermAll] = useState(false);
   const [term1, setTerm1] = useState(false);
   const [term2, setTerm2] = useState(false);
-  const [nickname, setNickname] = useState('');
   const [nicknameCheck, setNicknameCheck] = useState(undefined);
-  const [contact, setContact] = useState('');
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
   const [pwCheck, setPwCheck] = useState();
-  // const [startDate, setStartDate] = useState("");
 
-  function handleName(e) {
-    setName(e.target.value);
+  const inputHandler = (e) => {
+    setRegisterUser({...registerUser, [e.target.id]: e.target.value});
+  }
+  useEffect(()=>{
+      console.log("Effect");
+      console.log(registerUser);
+  },[registerUser]);
+
+  const submit = () => {
+    try {
+      emailCheck && termAll &&
+      registerUser.userName && registerUser.sex && registerUser.birth && registerUser.email &&
+      registerUser.nickName && registerUser.phone && registerUser.password &&
+      _registerUser(registerUser).then((res) => {
+        console.log("submit res");
+        console.log(res);
+        try {
+          (res.status === 200) &&
+          (window.location.href = "/");
+        }
+        catch (e) {
+          console.log(e);
+        }
+      })
+    } catch (e) {
+      console.log("submit에서 에러");
+      console.log(e);
+      alert(e);
+    }
   }
 
-  function handleSex(e) {
-    setSex(e.target.value);
-  }
-
-  function handleEmail(e) {
+  const handleEmail = (e) => {
     setEmail(e.target.value);
   }
-
-  function sendEmail(e) {
+  const sendEmail = (e) => {
     e.preventDefault();
     let re = /\S+@\S+\.\S+/;
     if(!re.test(email))
@@ -102,35 +123,55 @@ function SignUp() {
       alert("적합하지 않은 이메일 형식입니다.");
       return;
     }
+    try {
+      setRegisterUser({...registerUser, "email": email});
+      _sendEmail(email).then((res) => {
+        console.log("sendEmail res");
+        console.log(res);
+        try {
+          (res.status === 200) &&
+          alert("이메일을 보냈습니다.");
+        }
+        catch (e) {
+          console.log(e);
+        }
+      })
+    } catch (e) {
+      console.log("sendEmail에서 에러");
+      console.log(e);
+      alert(e);
+    }
   }
 
-  function handleCertification(e) {
-    setCertification(e.target.value);
+  const handleCode = (e) => {
+    setCode(e.target.value);
   }
 
-  function checkCertification(e) {
+  const checkCode = (e) => {
     e.preventDefault();
-    console.log("이메일 체크 구현하세요~");
-  }
-
-  function handleNickname(e) {
-    setNickname(e.target.value);
+    try {
+      code &&
+      _verifyEmail(registerUser.email, code).then((res) => {
+        console.log("checkCode res");
+        console.log(res);
+        if (res.data.success === true) {
+          setEmail(registerUser.email);
+          setEmailCheck(true);
+          alert("인증이 완료되었습니다.");
+        }
+      })
+    } catch (e) {
+      console.log("checkCode에서 에러");
+      console.log(e);
+      alert(e);
+    }
   }
 
   function handleContact(e) {
-    const regex = /^[0-9\b -]{0,13}$/;
+    const regex = /^[0-9\b]{0,11}$/;
     if (regex.test(e.target.value))
-      setContact(e.target.value);
+      setRegisterUser({...registerUser, "phone": e.target.value});
   }
-
-  useEffect(() => {
-    if (contact.length === 10) {
-      setContact(contact.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3'));
-    }
-    if (contact.length === 13) {
-      setContact(contact.replace(/-/g, '').replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'));
-    }
-  }, [contact]);
 
   function handlePassword(e) {
     setPassword(e.target.value);
@@ -143,9 +184,11 @@ function SignUp() {
   useEffect(() => {
     if (password !== rePassword) {
       setPwCheck(false);
+      setRegisterUser({...registerUser, "password": ""});
     }
     else {
       setPwCheck(true);
+      setRegisterUser({...registerUser, "password": password});
     }
   }, [password, rePassword]);
 
@@ -180,14 +223,14 @@ function SignUp() {
           <div className="signUpBasicInfo">
             <div className="signUpContent signUpName">
               <div className="signUpLabel">이름*</div>
-              <input className="signUpNameInput" type="text" value={name} placeholder=" 이름을 입력하세요." onChange={handleName}/>
+              <input className="signUpNameInput" type="text" value={registerUser.userName} id="userName" placeholder=" 이름을 입력하세요." onChange={inputHandler}/>
             </div>
             <div className="signUpContent signUpSex">
               <div className="signUpLabel">성별*</div>
-              <select className="signUpSexSelect" value={sex} onChange={handleSex}>
+              <select className="signUpSexSelect" value={registerUser.sex} id="sex" onChange={inputHandler}>
                 <option value="" disabled hidden>성별을 입력하세요</option>
-                <option value="male">남자</option>
-                <option value="female">여자</option>
+                <option value="MALE">남자</option>
+                <option value="FEMALE">여자</option>
               </select>
             </div>
             <div className="signUpContent signUpBirth">
@@ -199,17 +242,18 @@ function SignUp() {
             <div className="signUpContent signUpEmailWrapper">
               <div className="signUpLabel">이메일*</div>
               <div className="signUpEmail">
-                <input className="signUpEmailInput" value={email} placeholder=" 이메일을 입력해주세요" onChange={handleEmail}/>
+                <input className="signUpEmailInput" value={email} placeholder=" 이메일을 입력해주세요"
+                {...emailCheck ? {disabled: true} : {}} onChange={handleEmail}/>
                 <button className="signUpEmailBtn" onClick={sendEmail}>이메일 인증</button>
               </div>
               <div className="signUpCertificate">
-                <input className="signUpCertificationInput" value={certification} onChange={handleCertification} placeholder=" 인증번호를 입력해주세요"/>
-                <button className="signUpCertificationBtn" onClick={checkCertification}>인증 완료</button>
+                <input className="signUpCodeInput" value={code} onChange={handleCode} placeholder=" 인증번호를 입력해주세요"/>
+                <button className="signUpCodeBtn" {...emailCheck ? {disabled: true} : {}} onClick={checkCode}>인증 완료</button>
               </div>
             </div>
             <div className="signUpContent signUpNickNameWrapper">
               <div className="signUpLabel">닉네임*</div>
-              <input className="signUpNickname" value={nickname} placeholder=" 닉네임을 입력해주세요" onChange={handleNickname}/>
+              <input className="signUpNickname" value={registerUser.nickName} id="nickName" placeholder=" 닉네임을 입력해주세요" onChange={inputHandler}/>
               <div className="signUpCheckNickname">
                 <button className="signUpNicknameBtn" onClick={(e) => {e.preventDefault(); setNicknameCheck(true); console.log('중복검사')}}>중복 검사</button>
                 <div className="signUpIsCheckedNickname" style={nicknameCheck === undefined ? {display:"none"} : {display:"flex"}}>{nicknameCheck ? "이용 가능한 닉네임입니다." : "이용 불가능한 닉네임입니다."}</div>
@@ -217,7 +261,7 @@ function SignUp() {
             </div>
             <div className="signUpContent">
               <div className="signUpLabel">전화번호*</div>
-              <input className="signUpContact" type="text" value={contact} placeholder=" 전화번호를 입력하세요" onChange={handleContact} autoComplete="nope"/>
+              <input className="signUpContact" type="text" value={registerUser.phone} placeholder=" 전화번호를 입력하세요" onChange={handleContact} autoComplete="nope"/>
             </div>
             <div className="signUpContent">
               <div className="signUpLabel">비밀번호*</div>
@@ -258,7 +302,7 @@ function SignUp() {
               <button className="signUpTermBtn" onClick={(e) => {e.preventDefault();console.log("termbtn");}}>보기</button>
             </div>
           </div>
-          <button className="signUpFinish" type="submit">가입완료</button>
+          <button className="signUpFinish" type="submit" onClick={(e)=>{e.preventDefault();submit();}}>가입완료</button>
         </form>
       </div>
     </>

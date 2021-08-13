@@ -49,3 +49,33 @@ export const _GetAllStudio = async()=>{
 
     }
 }
+
+export const _registerUser = async(f)=>{
+  try{
+      const res = await axios.post(`${url}/auth/signup`,f);
+      console.log(res);
+      return res;
+  }catch(e){
+      alert(e);
+  }
+}
+
+export const _sendEmail = async(mail)=>{
+  try{
+      const res = await axios.post(`${url}/auth/emailsend?email=${mail}`);
+      console.log(res);
+      return res;
+  }catch(e){
+      alert(e);
+  }
+}
+
+export const _verifyEmail = async(mail, code)=>{
+  try{
+      const res = await axios.post(`${url}/auth/emailverification?email=${mail}&code=${code}`);
+      console.log(res);
+      return res;
+  }catch(e){
+      alert(e);
+  }
+}

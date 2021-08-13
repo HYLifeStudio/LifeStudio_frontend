@@ -15,18 +15,20 @@ const UserContextProvider = ({children}) => {
         msg : "",
     });
     const [Loading,setLoading] = useState(false);
-    const [registerUser,setRegisterStudio] = useState({
-      name : "",
-      sex: "",
-      birth: "",
-      email: "",
-      nickname: "",
-      phone: "",
-      password: ""
+    const [registerUser,setRegisterUser] = useState({
+      "userName" : "",
+      "sex": "",
+      "birth": "",
+      "email": "",
+      "nickName": "",
+      "phone": "",
+      "password": ""
     });
 
     return <UserContext.Provider
             value={{
+                registerUser,
+                setRegisterUser,
                 alertModal,
                 setAlertModal,
                 Loading,
