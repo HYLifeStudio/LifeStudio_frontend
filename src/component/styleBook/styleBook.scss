@@ -13,14 +13,15 @@
             margin-bottom: 1.5rem;
             gap : 0.5rem;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             .styleBookCard{
                 width : 100%;
                 height: 100%;
                 //border : 1px solid red;
                 .styleBookCardImg{
-                    width : 30rem;
-                    height: 30rem;
+                    width : 20rem;
+                    height: 20rem;
+                    border-radius: 15px;
                     overflow: hidden;
                     position: relative;
                     &:hover{
@@ -52,6 +53,7 @@
                       }
                       .heart::before,
                       .heart::after {
+                        
                         content: "";
                         width: 1.5rem;
                         height: 1.5rem;
@@ -64,6 +66,33 @@
                         left: -50%;
                       }
                       .heart::after {
+                        top: -50%;
+                      }
+                      .redheart {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        background: red;
+                        position: relative;
+                        transform: rotate(45deg);
+                        z-index: 10000;
+                        left : 85%;
+                        top: 85%;
+                      }
+                      .redheart::before,
+                      .redheart::after {
+                        
+                        content: "";
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        position: absolute;
+                        border-radius: 50%;
+                        background: red;
+                        z-index: 100000;
+                      }
+                      .redheart::before {
+                        left: -50%;
+                      }
+                      .redheart::after {
                         top: -50%;
                       }
                 }

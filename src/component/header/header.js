@@ -1,15 +1,17 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import './header.scss';
 import styled, {css} from 'styled-components';
 import { useHistory } from 'react-router';
 import ham from '../../images/hambur.png';
 import arrow from '../../images/arrow.png';
+import { UserContext } from "../../context/user";
 
 
 function Header() {
   let history = useHistory();
   const [clickOpenArrow, setClickOpenArrow] = useState(false);
   const [clickCloseArrow, setClickCloseArrow] = useState(false);
+  const {setUserInfo} = useContext(UserContext);
 
   return (
     <>
@@ -42,10 +44,21 @@ function Header() {
               <div
                 className="menuItem"
                 onClick={() => {
-                  history.push('/');
+                  history.push('/edituser');
                 }}
               >
                 <span>내 정보</span>
+              </div>
+              <div
+                className="menuItem"
+                onClick={() => {
+                  setUserInfo({status:'idle',data:null});
+                  sessionStorage.clear();
+                  window.location.reload();
+                  console.log("123");
+                }}
+              >
+                <span>로그아웃</span>
               </div>
             </div>
           </div>
@@ -100,7 +113,7 @@ const MenuBox = styled.div`
       }
       @media only screen and (min-width: 1024px){
         width : 20%
-        
+
       }
       height: 100vh;
     `}

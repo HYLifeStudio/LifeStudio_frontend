@@ -1,12 +1,8 @@
 import React, {createContext, useState,useEffect} from 'react';
-import {_GetAllStudio, _GetIndividualStudio} from '../api/api';
+import {_GetAllStudio, _GetIndividualStudio, _GetLikePhoto, _GetStyleBookStudio} from '../api/api';
 const StudioContext = createContext();
 
 const StudioContextProvider = ({children}) => {
-    useEffect(()=>{
-        getAllStudio();
-        console.log(1);
-    },[])
 const [registerStudio,setRegisterStudio]=useState({
     studioName : "",
     cityDistrict : "",
@@ -50,9 +46,32 @@ const [selectStudio,setSelectStudio] = useState({
     status : 'idle',
     data : null,
 });
+const [stylebookStudio,setStylebookStudio] = useState({
+    status : 'idle',
+    data : null
+})
+const [stylebookLike,setStylebookLike] = useState({
+    status : 'idle',
+    data : null
+})
+const [target_location,setTarget_location] = useState("서울시 성동구");
+const [target_type,setTarget_type] = useState("SELF");
+const [likeClick,setLikeClick] = useState(false);
+
+useEffect(()=>{
+    getAllStudio();
+    console.log(1);
+},[target_type,target_location])
+useEffect(()=>{
+    getStyleBookStudio();
+    console.log(1);
+},[target_type])
+useEffect(()=>{
+    getStyleBookLike();
+},[])
 
 const getAllStudio=async()=>{
-    let res = await _GetAllStudio();
+    let res = await _GetAllStudio(target_type,target_location);
     console.log(res);
     try{
         setAllStudio({
@@ -89,6 +108,53 @@ const getIndividualStudio=async(n)=>{
         })
     }
 }
+const getStyleBookStudio=async()=>{
+    let res = await _GetStyleBookStudio(target_type);
+    console.log(res);
+    try{
+        setStylebookStudio({
+            status:'pending',
+            data:null,
+        });
+        setStylebookStudio({
+            status:'resolved',
+            data : res.list
+        });
+    }catch(e){
+        setStylebookStudio({
+            status:'rejected',
+            data:null
+        })
+    }
+}
+
+const getStyleBookLike = async()=>{
+    let temp = 19;
+    let res = await _GetLikePhoto(temp);
+    console.log("12345");
+    if(res==undefined){
+        setStylebookLike({
+            status:'resolved',
+            data: undefined
+        })
+    }else{
+    try{
+        setStylebookLike({
+            status:'pending',
+            data:null,
+        });
+        setStylebookLike({
+            status:'resolved',
+            data: res.data.list
+                });
+    }catch(e){
+        setStylebookLike({
+            status:'rejected',
+            data:null
+        })
+    }
+    }
+}
 
 
 
@@ -103,6 +169,11 @@ const getIndividualStudio=async(n)=>{
                 allStudio,setAllStudio,
                 selectStudio,setSelectStudio,
                 getIndividualStudio,
+                target_location,setTarget_location,
+                target_type,setTarget_type,
+                stylebookStudio,setStylebookStudio,
+                stylebookLike,setStylebookLike,
+                likeClick,setLikeClick,
             }}
     >
         {children}

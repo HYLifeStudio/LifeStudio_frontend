@@ -11,7 +11,7 @@ function StudioInfo({match}){
     switch(selectStudio.status){
         case 'pending':
           return(<Loading/>);
-        case 'idel':
+        case 'idle':
           return(<Loading/>);
         case 'rejected':
           return(<Loading/>);
