@@ -1,7 +1,8 @@
-import {useContext,useState} from 'react';
+import {useContext,useEffect,useState} from 'react';
 import {_registerStudio,_imageUpload,_ImgToDb} from "../../../api/api";
 import { StudioContext } from '../../../context/studio';
 import "./studioregisterBtn.scss";
+import Loading from "../../loading/loading";
 
 function StudioRegisterBtn(){
     const {registerStudio,registerStudioTitleImg,registerStudioSubImg_1,registerStudioSubImg_2,registerStudioSubImg_3,registerStudioEnterImg} = useContext(StudioContext);
@@ -15,6 +16,15 @@ function StudioRegisterBtn(){
     const sub_2=new FormData();
     const sub_3=new FormData();
     const enter=new FormData();
+    const [wait,setWait] = useState(false);
+
+    useEffect(()=>{
+        title.append('images',registerStudioTitleImg);
+        sub_1.append('images',registerStudioSubImg_1);
+        sub_2.append('images',registerStudioSubImg_2);
+        sub_3.append('images',registerStudioSubImg_3);
+        enter.append('images',registerStudioEnterImg); 
+    },[registerStudioEnterImg,registerStudioSubImg_1,registerStudioSubImg_2,registerStudioSubImg_3,registerStudioTitleImg])
     
 
     const [tmp,setTmp] = useState({
@@ -50,115 +60,78 @@ function StudioRegisterBtn(){
 )
     
     const submit = () => {
-        console.log(tmp); 
-        title.append('file',registerStudioTitleImg);
-        sub_1.append('file',registerStudioSubImg_1);
-        sub_2.append('file',registerStudioSubImg_2);
-        sub_3.append('file',registerStudioSubImg_3);
-        enter.append('file',registerStudioEnterImg);     
+        if(registerStudioTitleImg && registerStudioSubImg_1 && registerStudioSubImg_2 && registerStudioSubImg_3 && registerStudioEnterImg){
+            //setWait(true);
+        //let fi = false;let se = false; let th=false; let fo=false;let fiv=false;     
         try{
             _registerStudio(tmp).then((res)=>{
-                console.log(res);
-                const id = res.data.id;
-                //title
-            _imageUpload(title).then((res)=>{
+                console.log("사진관 텍스트 데이터 " + res);
                 return res.data;
             }).then((data)=>{
-                setTitleImg({
-                    "studioId" : data.studioId,
-                    'title' : data.title,
-                    'url': data.url,
-                    "type" : "representative"
-                })
+                const id = data.data.id;
                 try{
-                    titleImg &&
-                    _ImgToDb(titleImg);
-                }catch(e){
-                    alert(e);
-                }
-            })
-            //sub
-            _imageUpload(sub_1).then((res)=>{
-                return res.data;
-            }).then((data)=>{
-                setSubImg_1({
-                    "studioId" : data.studioId,
-                    'title' : data.title,
-                    'url': data.url,
-                    "type" : "advertisement"
+                    _imageUpload(title).then((res)=>{return res.data}).then((data)=>{
+                    let tmp = {"studioId" : id, 'title' : data.data.title, 'url': data.data.url, "type" : "representative"}
+                        try{
+                            _ImgToDb(tmp)
+                            }catch(e){}
+                }).then(()=>{
+                    try{
+                        _imageUpload(sub_1).then((res)=>{return res.data}).then((data)=>{
+                            let tmp = {"studioId" : id, 'title' : data.data.title, 'url': data.data.url, "type" : "advertisement"}
+                                try{
+                                    _ImgToDb(tmp)
+                                    }catch(e){}
+                        }).then(()=>{
+                            try{
+                                _imageUpload(sub_2).then((res)=>{return res.data}).then((data)=>{
+                                    let tmp = {"studioId" : id, 'title' : data.data.title, 'url': data.data.url, "type" : "advertisement"}
+                                        try{
+                                            _ImgToDb(tmp)
+                                            }catch(e){}
+                                }).then(()=>{
+                                    try{
+                                        _imageUpload(sub_3).then((res)=>{return res.data}).then((data)=>{
+                                            let tmp = {"studioId" : id, 'title' : data.data.title, 'url': data.data.url, "type" : "advertisement"}
+                                                try{
+                                                    _ImgToDb(tmp)
+                                                    }catch(e){}
+                                        }).then(()=>{
+                                            try{
+                                                _imageUpload(enter).then((res)=>{return res.data}).then((data)=>{
+                                                    let tmp = {"studioId" : id, 'title' : data.data.title, 'url': data.data.url, "type" : "businessRegistration"}
+                                                        try{
+                                                            _ImgToDb(tmp)
+                                                            }catch(e){}
+                                                })
+                                            }catch(e){}
+                                        })
+                                    }catch(e){}
+                                })
+                            }catch(e){}
+                        })
+                    }catch(e){}
                 })
-                try{
-                    subImg_1 &&
-                    _ImgToDb(subImg_1);
-                }catch(e){
-                    alert(e);
-                }
+            }catch(e){}
             })
-            _imageUpload(sub_2).then((res)=>{
-                return res.data;
-            }).then((data)=>{
-                setSubImg_2({
-                    "studioId" : data.studioId,
-                    'title' : data.title,
-                    'url': data.url,
-                    "type" : "advertisement"
-                })
-                try{
-                    subImg_2 &&
-                    _ImgToDb(subImg_2);
-                }catch(e){
-                    alert(e);
-                }
-            })
-            _imageUpload(sub_3).then((res)=>{
-                return res.data;
-            }).then((data)=>{
-                setSubImg_3({
-                    "studioId" : data.studioId,
-                    'title' : data.title,
-                    'url': data.url,
-                    "type" : "advertisement"
-                })
-                try{
-                    subImg_3 &&
-                    _ImgToDb(subImg_3);
-                }catch(e){
-                    alert(e);
-                }
-            })
-            //enter
-            _imageUpload(enter).then((res)=>{
-                return res.data;
-            }).then((data)=>{
-                setEnterImg({
-                    "studioId" : data.studioId,
-                    'title' : data.title,
-                    'url':data.url,
-                    "type" : "businessRegistration"
-                })
-                try{
-                    enterImg &&
-                    _ImgToDb(enterImg);
-                }catch(e){
-                    alert(e);
-                }
-                
-            })
-            })
-            
-                
-        }catch(e){
-            alert(e);
-        }
-       
-
+            }catch(e){alert(e);}
+        }else{alert("모든 필드의 사진을 채워주세요.")}
     }
+
     return(
-        <div className="studioRegisterBtnContainer">
-            <div className="studioRegisterBtn" onClick={()=>{submit()}}>
-            <span>등록</span>
+        <>
+        {
+            wait? 
+            <Loading/>
+            :
+            <div className="studioRegisterBtnContainer">
+                <div className="studioRegisterBtn" onClick={()=>{submit()}}>
+                <span>등록</span>
+                </div>
             </div>
-        </div>
+        }
+        </>
+        
     )
 
 }

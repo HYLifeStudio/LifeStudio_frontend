@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { StudioContext } from '../../context/studio'
 
 const {kakao} = window
 
 const Location=({w,h})=>{
+    const {target_location} = useContext(StudioContext);
     const styles={width:w,height:h}
-    const location = {
-        address: '양천구 신정동',
-      }
     useEffect(()=>{
     var infowindow = new kakao.maps.InfoWindow({zIndex:10});
     var container = document.getElementById('map');
@@ -16,7 +15,7 @@ const Location=({w,h})=>{
     };
     var map = new kakao.maps.Map(container, options);
     var ps = new kakao.maps.services.Places();
-    ps.keywordSearch(`${location.address} 사진관`, placesSearchCB);
+    ps.keywordSearch(`${target_location} 사진관`, placesSearchCB);
     function placesSearchCB (data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
 
@@ -48,7 +47,7 @@ const Location=({w,h})=>{
             infowindow.open(map, marker);
         });
     }
-    }, [])
+    }, [target_location])
 
  
 //   // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다

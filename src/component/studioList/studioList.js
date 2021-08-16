@@ -11,18 +11,24 @@ function StudioList() {
   switch(allStudio.status){
     case 'pending':
       return(<Loading/>);
-    case 'idel':
+    case 'idle':
       return(<Loading/>);
     case 'rejected':
       return(<Loading/>);
     default:
       console.log(allStudio);
+      if(allStudio.data.length===0){
+        return(
+          <div>
+            등록 된 사진관이 존재하지 않습니다.
+          </div>
+        )
+      }
       return (
         <>
           <div className="studioListWrapper">
             <div className="studioListMain">
               {allStudio.data && allStudio.data.map((item, index) => {
-                console.log(item.id);
                 return (
                   <Link className="studioListUrl" to={`/detail/${item.id}`}  key={item.id}>
                     <div className="studioListCard">

@@ -23,11 +23,6 @@ const menuItems = [
     title: '스타일북',
     url: '/',
     cName: 'mainNavbarMenu',
-  },
-  {
-    title: '취향기반',
-    url: '/',
-    cName: 'mainNavbarMenu',
   }
 ];
 
@@ -63,9 +58,9 @@ function MainNavbar() {
           :
           <>
           <Route component={StudioType}/>
-          <div className="sortPillWrapper">
+          {/* <div className="sortPillWrapper">
             <Route component={SortPill}/>
-          </div>
+          </div> */}
           <Route component={StyleBook}/>
           
           
