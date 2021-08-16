@@ -92,7 +92,7 @@ function SignUp() {
   const submit = () => {
     try {
       emailCheck && termAll &&
-      registerUser.userName && registerUser.sex && registerUser.birth && registerUser.email &&
+      registerUser.name && registerUser.sex && registerUser.birth && registerUser.email &&
       registerUser.nickName && registerUser.phone && registerUser.password &&
       _registerUser(registerUser).then((res) => {
         console.log("submit res");
@@ -223,7 +223,7 @@ function SignUp() {
           <div className="signUpBasicInfo">
             <div className="signUpContent signUpName">
               <div className="signUpLabel">이름*</div>
-              <input className="signUpNameInput" type="text" value={registerUser.userName} id="userName" placeholder=" 이름을 입력하세요." onChange={inputHandler}/>
+              <input className="signUpNameInput" type="text" value={registerUser.name} id="name" placeholder=" 이름을 입력하세요." onChange={inputHandler}/>
             </div>
             <div className="signUpContent signUpSex">
               <div className="signUpLabel">성별*</div>

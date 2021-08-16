@@ -1,7 +1,38 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useEffect } from 'react';
+import { url } from '../api/config.js';
+import axios from 'axios';
 
 const UserContext = createContext();
 const UserContextProvider = ({children}) => {
+    useEffect( async () =>{
+      if(sessionStorage.length) {
+        let tmp= sessionStorage.getItem('Token');
+        axios.defaults.headers.common["Authorization"] = `Bearer ${tmp}`;
+        setAlertModal({
+          onoff : false,
+          msg : ""
+        });
+      }
+      try{
+        const res = await axios.get(`${url}/api/user/me`);
+        console.log(res);
+        setUserInfo({
+          status:'pending',
+          data:null,
+        });
+        setUserInfo({
+          status:'resolved',
+          data: res.data
+        });
+      }catch(e){
+        setUserInfo({
+          status:'rejected',
+          data : null
+        });
+        console.log(e);
+      }
+    },[])
+
     const [alertModal, setAlertModal] = useState({
         onoff : true,
         msg : "",
@@ -11,7 +42,7 @@ const UserContextProvider = ({children}) => {
       data : null,
     });
     const [registerUser,setRegisterUser] = useState({
-      "userName" : "",
+      "name" : "",
       "sex": "",
       "birth": "",
       "email": "",

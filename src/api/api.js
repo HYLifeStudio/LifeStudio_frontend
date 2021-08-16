@@ -83,7 +83,8 @@ export const _verifyEmail = async(mail, code)=>{
 export const _signin = async(f)=>{
   try{
       const res = await axios.post(`${url}/auth/signin`,f);
-      axios.defaults.headers.common[`${res.data.data.tokenType}`] = `${res.data.data.accessToken}`;
+      axios.defaults.headers.common["Authorization"] = `${res.data.data.tokenType} ${res.data.data.accessToken}`;
+      sessionStorage.setItem('Token',res.data.data.accessToken);
       console.log(res);
       return res;
   }catch(e){
