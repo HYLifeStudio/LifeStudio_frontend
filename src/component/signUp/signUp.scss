@@ -54,7 +54,7 @@
     flex-direction: column;
     align-items: center;
     width: 11rem;
-    .signUpName, .signUpGender, .signUpBirth {
+    .signUpName, .signUpSex, .signUpBirth {
       width: 100%;
       border-bottom: solid 0.1rem #e8e8e8;
     }
@@ -116,7 +116,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    .signUpEmailInput, .signUpCertificationInput {
+    .signUpEmailInput, .signUpCodeInput {
       border: none;
       width: auto;
       background: none;
@@ -169,7 +169,7 @@
         color: #ffffff;
       }
     }
-    .signUpCertificationBtn {
+    .signUpCodeBtn {
       margin-right: 0.1rem;
       width: auto;
       height: 1.154rem;
@@ -311,7 +311,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    .signUpName, .signUpGender {
+    .signUpName, .signUpSex {
       width: 45%;
       border-bottom: solid 0.1rem #707070;
     }
@@ -386,7 +386,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    .signUpCertificationInput {
+    .signUpCodeInput {
       background-color: #f8f8f8;
       border: solid 0.5px #e8e8e8;
       width: 50px;
@@ -412,7 +412,7 @@
     .signUpEmailBtn, .signUpNicknameBtn {
       background-color: #bebebe;
     }
-    .signUpCertificationBtn {
+    .signUpCodeBtn {
       margin-left: 0.3rem;
       background-color: #ff9c15;
       flex-basis: 111px;

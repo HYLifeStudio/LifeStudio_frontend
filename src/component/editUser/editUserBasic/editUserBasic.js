@@ -1,53 +1,84 @@
-import React, {useState} from 'react';
+import React, { useState,useEffect } from 'react';
 import './editUserBasic.scss';
-
-const UserInfo = {
-  name: '수현',
-  gender: '여성',
-  birth: '1998년 04월 19일',
-  email: 'likelion@gmail.com',
-  nickname: '멋쟁이사자'
-}
+import { _getUserInfo } from '../../../api/api';
+import { useContext } from "react/cjs/react.development";
+import { UserContext } from "../../../context/user";
+import Loading from "../../../component/loading/loading";
 
 function EditUserBasic() {
-  return (
-    <>
-      <div className="editUserBasicWrapper">
-        <div className="editUserBasicUpper">
-          <div className="editUserBasicContent">
-            <div className="editUserBasicLabel">이름</div>
-            <div className="editUserBasicName">
-              {UserInfo.name}
+  const { setUserInfo, userInfo } = useContext(UserContext);
+  useEffect(()=>{
+    getUserInfo();
+    console.log(1);
+  },[])
+
+  const getUserInfo = async() => {
+    try{
+      _getUserInfo().then((res) => {
+        setUserInfo({
+          status:'pending',
+          data:null,
+        });
+        setUserInfo({
+          status:'resolved',
+          data: res.data
+        });
+      })
+    }catch(e){
+      setUserInfo({
+        status:'rejected',
+        data : null
+      });
+      console.log(e);
+    }
+  }
+  switch(userInfo.status){
+    case 'pending':
+      return(<Loading/>);
+    case 'idle':
+      return(<Loading/>);
+    case 'rejected':
+      return(<Loading/>);
+    default:
+      return (
+        <>
+          <div className="editUserBasicWrapper">
+            <div className="editUserBasicUpper">
+              <div className="editUserBasicContent">
+                <div className="editUserBasicLabel">이름</div>
+                <div className="editUserBasicName">
+                  {userInfo.data.name}
+                </div>
+              </div>
+              <div className="editUserBasicContent">
+                <div className="editUserBasicLabel">성별</div>
+                <div className="editUserBasicGender">
+                  {userInfo.data.sex === "MALE" ? "남자" : "여자"}
+                </div>
+              </div>
+            </div>
+            <div className="editUserBasicContent">
+              <div className="editUserBasicLabel">생년월일</div>
+              <div className="editUserBasicBirth">
+                {userInfo.data.birth}
+              </div>
+            </div>
+            <div className="editUserBasicContent">
+              <div className="editUserBasicLabel">이메일</div>
+              <div className="editUserBasicEmail">
+                {userInfo.data.email}
+              </div>
+            </div>
+            <div className="editUserBasicContent">
+              <div className="editUserBasicLabel">닉네임</div>
+              <div className="editUserBasicNickname">
+                {userInfo.data.nickName}
+              </div>
             </div>
           </div>
-          <div className="editUserBasicContent">
-            <div className="editUserBasicLabel">성별</div>
-            <div className="editUserBasicGender">
-              {UserInfo.gender}
-            </div>
-          </div>
-        </div>
-        <div className="editUserBasicContent">
-          <div className="editUserBasicLabel">생년월일</div>
-          <div className="editUserBasicBirth">
-            {UserInfo.birth}
-          </div>
-        </div>
-        <div className="editUserBasicContent">
-          <div className="editUserBasicLabel">이메일</div>
-          <div className="editUserBasicEmail">
-            {UserInfo.email}
-          </div>
-        </div>
-        <div className="editUserBasicContent">
-          <div className="editUserBasicLabel">닉네임</div>
-          <div className="editUserBasicNickname">
-            {UserInfo.nickname}
-          </div>
-        </div>
-      </div>
-    </>
-  )
+        </>
+      )
+  }
 }
 
 export default EditUserBasic;
