@@ -14,7 +14,6 @@ const UserContextProvider = ({children}) => {
           msg : ""
         });
         try{
-  
           const res = await axios.get(`${url}/users/me`);
           console.log(res);
           setUserInfo({
