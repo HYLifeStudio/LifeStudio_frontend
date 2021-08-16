@@ -13,8 +13,10 @@ import EditUser from './pages/editUser';
 import StudioEdit from './pages/studioEdit';
 import UserReserveList from './pages/userReserveList';
 import { StudioContextProvider } from './context/studio';
+import LikedList from './pages/likedList';
 import Reserve from './pages/reserve';
 import LocationSearch from './component/locationSearch/locationSearch';
+
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
             <Route path="/studioEdit" component={StudioEdit}/>
             <Route path="/edituser" component={EditUser}/>
             <Route path="/userlist" component={UserReserveList}/>
+            <Route path="/likedlist" component={LikedList}/>
             <Route path="/reserve" component={Reserve}/>
             <Route path="/locationsearch" component={LocationSearch}/>
             <Route component={NotFound}/>
