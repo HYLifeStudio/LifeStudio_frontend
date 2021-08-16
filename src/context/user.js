@@ -7,29 +7,31 @@ const UserContextProvider = ({children}) => {
     useEffect( async () =>{
       if(sessionStorage.length) {
         let tmp= sessionStorage.getItem('Token');
+        console.log(tmp);
         axios.defaults.headers.common["Authorization"] = `Bearer ${tmp}`;
         setAlertModal({
           onoff : false,
           msg : ""
         });
-      }
-      try{
-        const res = await axios.get(`${url}/api/user/me`);
-        console.log(res);
-        setUserInfo({
-          status:'pending',
-          data:null,
-        });
-        setUserInfo({
-          status:'resolved',
-          data: res.data
-        });
-      }catch(e){
-        setUserInfo({
-          status:'rejected',
-          data : null
-        });
-        console.log(e);
+        try{
+  
+          const res = await axios.get(`${url}/users/me`);
+          console.log(res);
+          setUserInfo({
+            status:'pending',
+            data:null,
+          });
+          setUserInfo({
+            status:'resolved',
+            data: res.data
+          });
+        }catch(e){
+          setUserInfo({
+            status:'rejected',
+            data : null
+          });
+          console.log(e);
+        }
       }
     },[])
 
