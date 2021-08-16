@@ -42,7 +42,7 @@ function Header() {
               <div
                 className="menuItem"
                 onClick={() => {
-                  history.push('/');
+                  history.push('/edituser');
                 }}
               >
                 <span>내 정보</span>
@@ -100,7 +100,7 @@ const MenuBox = styled.div`
       }
       @media only screen and (min-width: 1024px){
         width : 20%
-        
+
       }
       height: 100vh;
     `}

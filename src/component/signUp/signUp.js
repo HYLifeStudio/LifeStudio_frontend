@@ -69,7 +69,7 @@ const Calendar = () => {
 };
 
 function SignUp() {
-  const { setRegisterUser ,registerUser } = useContext(UserContext);
+  const { setRegisterUser, registerUser } = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [emailCheck, setEmailCheck] = useState(false);
   const [code, setCode] = useState('');

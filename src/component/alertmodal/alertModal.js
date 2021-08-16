@@ -3,12 +3,14 @@ import Modal from 'react-modal';
 import { UserContext } from '../../context/user';
 import './alertModal.scss';
 import {Link} from 'react-router-dom';
+import { _signin } from '../../api/api';
 
 
   export default function AlertModal(){
-      console.log("user context에 onoff, msg임의로 설정해놓음");
-      const [email, setEmail] = useState('');
-      const [password, setPassword] = useState('');
+      const [signin, setSignin] = useState({
+        "email" : "",
+        "password" : ""
+      });
       const {alertModal,setAlertModal} = useContext(UserContext);
       function closeModal() {
         setAlertModal({
@@ -16,12 +18,31 @@ import {Link} from 'react-router-dom';
           msg : ""
         });
       }
-      function handleEmail(e) {
-        setEmail(e.target.value);
+      const inputHandler = (e) => {
+        setSignin({...signin, [e.target.id]: e.target.value});
       }
-      function handlePassword(e) {
-        setPassword(e.target.value);
+
+      const submit = () => {
+        try {
+          signin.email && signin.password &&
+          _signin(signin).then((res) => {
+          console.log("login submit res");
+            console.log(res);
+            try {
+              (res.status === 200) &&
+              closeModal();
+            }
+            catch (e) {
+              console.log(e);
+            }
+          })
+        } catch (e) {
+          console.log("login submit에서 에러");
+          console.log(e);
+          alert(e);
+        }
       }
+
       return (
         <div className="modalWrapper">
           <Modal
@@ -38,9 +59,9 @@ import {Link} from 'react-router-dom';
             <div className="modalName">로그인</div>
             <div className="modalLogo">인생사진관</div>
             <form className="modalLogin" onSubmit={(e)=>{e.preventDefault(); console.log(e.target)}}>
-              <input className="modalIdInput" placeholder="이메일" value={email} onChange={handleEmail} type="text" />
-              <input className="modalPWInput" placeholder="비밀번호" value={password} onChange={handlePassword} type="password" />
-              <button className="modalBtn" type="submit">로그인</button>
+              <input className="modalIdInput" placeholder="이메일" value={signin.email} id="email" onChange={inputHandler} type="text" />
+              <input className="modalPWInput" placeholder="비밀번호" value={signin.password} id="password" onChange={inputHandler} type="password" />
+              <button className="modalBtn" type="submit" onClick={(e)=>{e.preventDefault();submit();}}>로그인</button>
             </form>
             <div className="modalLower">
               <div className="modalFindPW">비밀번호찾기</div>
@@ -51,7 +72,6 @@ import {Link} from 'react-router-dom';
                 </Link>
               </div>
             </div>
-            {/* <div className="modalmsg">{`${alertModal?.msg}`}</div> */}
           </Modal>
         </div>
       );

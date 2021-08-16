@@ -9,12 +9,9 @@ import "./scss/main.scss";
 
 function Main(){
     const {alertModal,setAlertModal} = useContext(UserContext);
-    function modalOpen(){
-        setAlertModal({onoff:true,msg:"hello"});
-    }
     return(
         <>
-        
+
             <Route component={Header}/>
             <div className="mainWrapper">
             <Route component={MainNavbar}/>
@@ -24,7 +21,7 @@ function Main(){
                 alertModal.onoff?
                 <AlertModal/>:<></>
             }
-        
+
         </>
     )
 }

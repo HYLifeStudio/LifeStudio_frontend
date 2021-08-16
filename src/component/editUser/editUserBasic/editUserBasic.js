@@ -1,15 +1,36 @@
-import React, {useState} from 'react';
+import React, { useState,useEffect } from 'react';
 import './editUserBasic.scss';
-
-const UserInfo = {
-  name: '수현',
-  gender: '여성',
-  birth: '1998년 04월 19일',
-  email: 'likelion@gmail.com',
-  nickname: '멋쟁이사자'
-}
+import { _getUserInfo } from '../../../api/api';
+import { useContext } from "react/cjs/react.development";
+import { UserContext } from "../../../context/user";
 
 function EditUserBasic() {
+  const { setUserInfo, userInfo } = useContext(UserContext);
+  useEffect(()=>{
+    getUserInfo();
+    console.log(1);
+  },[])
+
+  const getUserInfo = async() => {
+    let res = await _getUserInfo();
+    console.log(res);
+    try{
+      setUserInfo({
+        status:'pending',
+        data:null,
+      });
+      setUserInfo({
+        status:'resolved',
+        data: res
+      });
+    }catch(e){
+      setUserInfo({
+        status:'rejected',
+        data:null
+      });
+      console.log(e);
+    }
+  }
   return (
     <>
       <div className="editUserBasicWrapper">
@@ -17,32 +38,32 @@ function EditUserBasic() {
           <div className="editUserBasicContent">
             <div className="editUserBasicLabel">이름</div>
             <div className="editUserBasicName">
-              {UserInfo.name}
+              {/* {userInfo.data.name} */}
             </div>
           </div>
           <div className="editUserBasicContent">
             <div className="editUserBasicLabel">성별</div>
             <div className="editUserBasicGender">
-              {UserInfo.gender}
+              {/* {userInfo.data.sex} */}
             </div>
           </div>
         </div>
         <div className="editUserBasicContent">
           <div className="editUserBasicLabel">생년월일</div>
           <div className="editUserBasicBirth">
-            {UserInfo.birth}
+            {/* {userInfo.data.birth} */}
           </div>
         </div>
         <div className="editUserBasicContent">
           <div className="editUserBasicLabel">이메일</div>
           <div className="editUserBasicEmail">
-            {UserInfo.email}
+            {/* {userInfo.data.email} */}
           </div>
         </div>
         <div className="editUserBasicContent">
           <div className="editUserBasicLabel">닉네임</div>
           <div className="editUserBasicNickname">
-            {UserInfo.nickname}
+            {/* {userInfo.data.nickName} */}
           </div>
         </div>
       </div>

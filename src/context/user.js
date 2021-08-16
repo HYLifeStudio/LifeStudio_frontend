@@ -1,20 +1,15 @@
 import React, {createContext, useState} from 'react';
 
-const defaultContext = {
-    sellerModal : {onoff : false, msg : ""},
-    setSellerModal : undefined,
-    Loading : false,
-    setLoading : undefined
-}
-
-const UserContext = createContext(defaultContext);
-
+const UserContext = createContext();
 const UserContextProvider = ({children}) => {
     const [alertModal, setAlertModal] = useState({
-        onoff : false,
+        onoff : true,
         msg : "",
     });
-    const [Loading,setLoading] = useState(false);
+    const [userInfo,setUserInfo] = useState({
+      status : 'idle',
+      data : null,
+    });
     const [registerUser,setRegisterUser] = useState({
       "userName" : "",
       "sex": "",
@@ -31,9 +26,8 @@ const UserContextProvider = ({children}) => {
                 setRegisterUser,
                 alertModal,
                 setAlertModal,
-                Loading,
-                setLoading
-
+                userInfo,
+                setUserInfo
             }}
     >
         {children}

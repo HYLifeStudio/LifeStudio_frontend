@@ -62,7 +62,7 @@ export const _registerUser = async(f)=>{
 
 export const _sendEmail = async(mail)=>{
   try{
-      const res = await axios.post(`${url}/auth/emailsend?email=${mail}`);
+      const res = await axios.post(`${url}/auth/emailsend?email=${mail}`,{},{ withCredentials: true, crossDomain: true });
       console.log(res);
       return res;
   }catch(e){
@@ -72,10 +72,31 @@ export const _sendEmail = async(mail)=>{
 
 export const _verifyEmail = async(mail, code)=>{
   try{
-      const res = await axios.post(`${url}/auth/emailverification?email=${mail}&code=${code}`);
+      const res = await axios.post(`${url}/auth/emailverification?email=${mail}&code=${code}`,{},{ withCredentials: true, crossDomain: true });
       console.log(res);
       return res;
   }catch(e){
       alert(e);
+  }
+}
+
+export const _signin = async(f)=>{
+  try{
+      const res = await axios.post(`${url}/auth/signin`,f);
+      axios.defaults.headers.common[`${res.data.data.tokenType}`] = `${res.data.data.accessToken}`;
+      console.log(res);
+      return res;
+  }catch(e){
+      alert(e);
+  }
+}
+
+export const _getUserInfo = async()=>{
+  try{
+      const res = await axios.get(`${url}/users/me`);
+      console.log(res);
+      return res.data;
+  }catch(e){
+
   }
 }
