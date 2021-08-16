@@ -1,1 +1,1 @@
-export const url = "http://seunggwon.org/api";
+export const url = "https://seunggwon.org/api";
