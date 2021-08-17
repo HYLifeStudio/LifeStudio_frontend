@@ -33,7 +33,7 @@ function StudioList() {
                   <Link className="studioListUrl" to={`/detail/${item.id}`}  key={item.id}>
                     <div className="studioListCard">
                       <div className="studioListPhoto">
-                        <img className="studioListImg" src={p1}/>
+                        <img className="studioListImg" src={item.representativePhoto.url}/>
                       </div>
                       <div className="studioListContent">
                         <div className="studioListName">
@@ -49,13 +49,10 @@ function StudioList() {
                             {item.options.ratingAverage}
                           </div>
                         </div>
-                        {/* <div className="studioListKeywords">
-                          {item.keywords.map((keyword, index) => {
-                            return (
-                              <button className="studioListKeyword" key={index}>{keyword}</button>
-                            )
-                          })}
-                        </div> */}
+                        <div className="studioListKeywords">
+                          {`${item.tag.color=="COLOR"? '컬러': item.tag.color=="IDPHOTO"? '증명사진':'바디프로필'} / ${item.tag.background?'배경 있음':'배경 없음'} / ${item.tag.itemExist?'소품 있음':'소품 없음'}`}
+      
+                        </div>
                       </div>
                     </div>
                   </Link>

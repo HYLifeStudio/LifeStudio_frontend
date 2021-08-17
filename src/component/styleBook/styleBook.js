@@ -5,9 +5,11 @@ import p1 from "../../images/sajin1.JPG";
 import { StudioContext } from '../../context/studio';
 import Loading from "../loading/loading";
 import {_PostLikePhoto,_PutLikePhoto} from "../../api/api";
+import { UserContext } from '../../context/user';
 
   function StyleBook(){
     const {stylebookStudio,stylebookLike} = useContext(StudioContext);
+    const {userInfo} = useContext(UserContext);
     const [click,setClick]=useState(false);
     const _click = () => setClick(!click);
     useEffect(()=>{
@@ -20,6 +22,10 @@ import {_PostLikePhoto,_PutLikePhoto} from "../../api/api";
       case 'rejected':
         return(<Loading/>);
       default:
+        const addHeart2=(id)=>{
+          let f={"userId":userInfo.data.data.id,"photoId":id};
+            _PostLikePhoto(f);
+        }
         if(stylebookLike.data!=undefined){
           switch(stylebookLike.status){
             case 'pending':
@@ -29,7 +35,6 @@ import {_PostLikePhoto,_PutLikePhoto} from "../../api/api";
             case 'rejected':
               return(<Loading/>);
             default:
-              console.log("1234567890")
             let tempLike = stylebookLike;
 
             const rmHeart=(id)=>{
@@ -75,7 +80,7 @@ import {_PostLikePhoto,_PutLikePhoto} from "../../api/api";
                 if(item.photo.id==photoId){
                   if(item.id===undefined){
                     console.log("1");
-                    let f={"userId":19,"photoId":photoId};
+                    let f={"userId":userInfo.data.data.id,"photoId":photoId};
                     _PostLikePhoto(f);
                   }
                 }
@@ -87,12 +92,13 @@ import {_PostLikePhoto,_PutLikePhoto} from "../../api/api";
             <div className="styleBookBox">
                 {
                     stylebookStudio.data.map((item,index)=>{
+                      console.log(item);
                       let flag=false;
                         return(
                             <div className="styleBookCard">
                                 <div className="styleBookCardImg">
                                     <Link to={`/detail/${item.studioId}`}  key={item.studioId}>
-                                    <img src={p1}/>
+                                    <img src={item.url}/>
                                     </Link>
                                     {
                                       tempLike.data !=undefined && tempLike.data.map((like,key)=>{
@@ -126,9 +132,9 @@ import {_PostLikePhoto,_PutLikePhoto} from "../../api/api";
                                 <div className="styleBookCard">
                                     <div className="styleBookCardImg">
                                         <Link to={`/detail/${item.studioId}`}  key={item.studioId}>
-                                        <img src={p1}/>
+                                        <img src={item.url}/>
                                         </Link>                    
-                                        <div className="heart"></div>    
+                                        <div className="heart" onClick={()=>{addHeart2(item.id)}}></div>    
                                     </div>
                                 </div>
                             )

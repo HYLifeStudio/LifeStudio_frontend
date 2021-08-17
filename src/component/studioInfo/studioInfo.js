@@ -30,7 +30,7 @@ function StudioInfo({match}){
             <div className="studioInfoCategoryContainer">  
                 <div className="studioInfoCategoryComponents">
                     <div className="studioInfoCategoryText">
-                    {selectStudio.data.data.studioType}
+                    {selectStudio.data.data.studioType=="SELF"? '셀프' : selectStudio.data.data.studioType=="IDPHOTO"? '증명사진':'바디프로필'}
                     </div>
                 </div>
                 <div className="studioInfoCategoryComponents">
@@ -48,17 +48,17 @@ function StudioInfo({match}){
             <div className="studioInfoContainer">
                 <div className="studioInfoPicContainer">
                     <div className="studioInfoPicLarge">
-                        <img src={p1}/>
+                        <img src={selectStudio.data.data.photos[0].url}/>
                     </div>
                     <div className="studioInfoPicSmall">
                         <div className="studioInfoPicSmallComponents">
-                            <img src={p1}/>
+                            <img src={selectStudio.data.data.photos[1].url}/>
                         </div>
                         <div className="studioInfoPicSmallComponents">
-                            <img src={p1}/>
+                            <img src={selectStudio.data.data.photos[2].url}/>
                         </div>
                         <div className="studioInfoPicSmallComponents">
-                            <img src={p1}/>
+                            <img src={selectStudio.data.data.photos[3].url}/>
                         </div>
 
                     </div>
@@ -78,21 +78,19 @@ function StudioInfo({match}){
                                 제한시간
                             </div>
                             <div className="studioInfoStorySmallBoxContent">
-                                기본 촬영 30분, 사진 보정 15분 (총 45분 이용)
+                                {`기본 촬영 ${selectStudio.data.data.option.shootingTime}분, 사진 보정 ${selectStudio.data.data.option.retouchingTime}분 (총 ${selectStudio.data.data.option.retouchingTime+selectStudio.data.data.option.shootingTime}분 이용)`}
                             </div>
                             <div className="studioInfoStorySmallBoxTitle">
                                 원본,인화본 제공
                             </div>
                             <div className="studioInfoStorySmallBoxContent">
-                            원본 기본 제공, 인화 3장 기본 제공
+                            {`원본 ${selectStudio.data.data.option.originalProvide?'기본':'유료'} 제공, 인화 ${selectStudio.data.data.option.printPhoto}장 기본 제공`}
                             </div>
                             <div className="studioInfoStorySmallBoxTitle">
                                 소품
                             </div>
                             <div className="studioInfoStorySmallBoxContent">
-                            각종 머리띠 (20종 이상 구비), 가면, 가발 
-                                교복 및 드레스, 정장 의상 대여 가능
-                            4종 나무 의자, 벤치, 나무 박스, 
+                            {selectStudio.data.data.option.item.length==0? '없음':selectStudio.data.data.option.item} 
                             </div>
                         </div>
                     </div>
