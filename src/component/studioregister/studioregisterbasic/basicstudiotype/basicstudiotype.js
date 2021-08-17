@@ -36,10 +36,10 @@ function BasicStudioType(){
                         <div className={`basicStudioTypeContentCategory ${basicStudioType.self? 'active' : 'inactive'}`} onClick={()=>{inputHandler("SELF","studioType");basicStudioType.self? setBasicStudioType({...basicStudioType, self:false}):setBasicStudioType({...basicStudioType, self:true,body:false,cefi:false})}}>
                             <span>셀프스튜디오</span>
                         </div>
-                        <div className={`basicStudioTypeContentCategory ${basicStudioType.body? 'active' : 'inactive'}`} onClick={()=>{inputHandler("BODY","studioType");basicStudioType.body? setBasicStudioType({...basicStudioType,body:false}):setBasicStudioType({...basicStudioType,self:false,body:true,cefi:false })}}>
+                        <div className={`basicStudioTypeContentCategory ${basicStudioType.body? 'active' : 'inactive'}`} onClick={()=>{inputHandler("BODYPROFILE","studioType");basicStudioType.body? setBasicStudioType({...basicStudioType,body:false}):setBasicStudioType({...basicStudioType,self:false,body:true,cefi:false })}}>
                             <span>바디프로필</span>
                         </div>
-                        <div className={`basicStudioTypeContentCategory ${basicStudioType.cefi? 'active' : 'inactive'}`} onClick={()=>{inputHandler("CEFI","studioType");basicStudioType.cefi? setBasicStudioType({...basicStudioType, cefi:false}):setBasicStudioType({...basicStudioType,self:false,body:false, cefi:true})}}>
+                        <div className={`basicStudioTypeContentCategory ${basicStudioType.cefi? 'active' : 'inactive'}`} onClick={()=>{inputHandler("IDPHOTO","studioType");basicStudioType.cefi? setBasicStudioType({...basicStudioType, cefi:false}):setBasicStudioType({...basicStudioType,self:false,body:false, cefi:true})}}>
                             <span>증명사진</span>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ function BasicStudioType(){
                         <div className="basicStudioTypeContentTitle">
                             <span>색상</span>
                         </div>
-                        <div className={`basicStudioTypeContentCategory ${basicStudioType.black? 'active' : 'inactive'}`} onClick={()=>{inputHandler("BLACK","color");basicStudioType.black? setBasicStudioType({...basicStudioType, black:false}):setBasicStudioType({...basicStudioType, color:false,black:true})}}>
+                        <div className={`basicStudioTypeContentCategory ${basicStudioType.black? 'active' : 'inactive'}`} onClick={()=>{inputHandler("BLACKANDWHITE","color");basicStudioType.black? setBasicStudioType({...basicStudioType, black:false}):setBasicStudioType({...basicStudioType, color:false,black:true})}}>
                             <span>흑백</span>
                         </div>
                         <div className={`basicStudioTypeContentCategory ${basicStudioType.color? 'active' : 'inactive'}`} onClick={()=>{inputHandler("COLOR","color");basicStudioType.color? setBasicStudioType({...basicStudioType,color:false}):setBasicStudioType({...basicStudioType, color:true,black:false})}}>

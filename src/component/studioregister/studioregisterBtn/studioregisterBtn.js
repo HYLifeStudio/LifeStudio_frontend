@@ -64,7 +64,7 @@ function StudioRegisterBtn(){
             //setWait(true);
         //let fi = false;let se = false; let th=false; let fo=false;let fiv=false;     
         try{
-            _registerStudio(tmp).then((res)=>{
+            _registerStudio(registerStudio).then((res)=>{
                 console.log("사진관 텍스트 데이터 " + res);
                 return res.data;
             }).then((data)=>{

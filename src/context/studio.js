@@ -1,36 +1,38 @@
-import React, {createContext, useState,useEffect} from 'react';
+import React, {createContext, useState,useEffect,useContext} from 'react';
 import {_GetAllStudio, _GetIndividualStudio, _GetLikePhoto, _GetStyleBookStudio} from '../api/api';
+import {UserContext} from "./user";
 const StudioContext = createContext();
 
 const StudioContextProvider = ({children}) => {
+const {userInfo} = useContext(UserContext)
 const [registerStudio,setRegisterStudio]=useState({
-    studioName : "",
-    cityDistrict : "",
-    streetAddress : "",
-    nearBy : "",
-    studioType : "",
-    color : "",
-    background : false,
-    monday : true,
-    tuesday : true,
-    wednesday : true,
-    thursday : true,
-    friday : true,
-    saturday : true,
-    sunday : true,
-    opentime : "11:00",
-    closeTime : "21:00",
-    shootingTime : 0,
-    retouchingTime : 0,
-    originalProvide : true,
-    printPhoto : 0,
-    itemExist : true,
-    item : "",
-    bio : "",
-    shopNumber : "",
-    registerationNumber : "",
-    managerName : "",
-    masterUserId : 1,
+    "studioName" : "",
+    "cityDistrict" : "",
+    "streetAddress" : "",
+    "nearBy" : "",
+    "studioType" : "",
+    "color" : "",
+    "background" : false,
+    "monday" : true,
+    "tuesday" : true,
+    "wednesday" : true,
+    "thursday" : true,
+    "friday" : true,
+    "saturday" : true,
+    "sunday" : true,
+    "opentime" : "11:00",
+    "closeTime" : "21:00",
+    "shootingTime" : 0,
+    "retouchingTime" : 0,
+    "originalProvide" : true,
+    "printPhoto" : 0,
+    "itemExist" : true,
+    "item" : "",
+    "bio" : "",
+    "shopNumber" : "",
+    "registerationNumber" : "",
+    "managerName" : "",
+    "masterUserId" : 1,
 
 });
 const [registerStudioTitleImg,setRegisterStudioTitleImg]=useState("");
@@ -54,7 +56,7 @@ const [stylebookLike,setStylebookLike] = useState({
     status : 'idle',
     data : null
 })
-const [target_location,setTarget_location] = useState("서울시 성동구");
+const [target_location,setTarget_location] = useState("서울시 강남구");
 const [target_type,setTarget_type] = useState("SELF");
 const [likeClick,setLikeClick] = useState(false);
 
@@ -68,6 +70,7 @@ useEffect(()=>{
 },[target_type])
 useEffect(()=>{
     getStyleBookLike();
+    console.log(userInfo);
 },[])
 
 const getAllStudio=async()=>{
@@ -129,9 +132,7 @@ const getStyleBookStudio=async()=>{
 }
 
 const getStyleBookLike = async()=>{
-    let temp = 19;
-    let res = await _GetLikePhoto(temp);
-    console.log("12345");
+    let res = await _GetLikePhoto(1);
     if(res==undefined){
         setStylebookLike({
             status:'resolved',

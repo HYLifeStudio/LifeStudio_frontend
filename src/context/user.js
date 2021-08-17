@@ -1,6 +1,7 @@
 import React, {createContext, useState, useEffect } from 'react';
 import { url } from '../api/config.js';
 import axios from 'axios';
+import Loading from "../component/loading/loading"
 
 const UserContext = createContext();
 const UserContextProvider = ({children}) => {
@@ -52,6 +53,14 @@ const UserContextProvider = ({children}) => {
       "phone": "",
       "password": ""
     });
+    // switch(userInfo.status){
+    //   case 'pending':
+    //     return(<Loading/>);
+    //   case 'idle':
+    //     return(<Loading/>);
+    //   case 'rejected':
+    //     return(<Loading/>);
+    //   default:
 
     return <UserContext.Provider
             value={{
@@ -65,6 +74,7 @@ const UserContextProvider = ({children}) => {
     >
         {children}
     </UserContext.Provider>
+    //}
 }
 
 export {UserContext,UserContextProvider};
