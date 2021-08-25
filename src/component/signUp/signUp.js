@@ -154,9 +154,9 @@ function SignUp() {
       _verifyEmail(registerUser.email, code).then((res) => {
         console.log("checkCode res");
         console.log(res);
+        setEmail(registerUser.email);
+        setEmailCheck(true);
         if (res.data.success === true) {
-          setEmail(registerUser.email);
-          setEmailCheck(true);
           alert("인증이 완료되었습니다.");
         }
       })

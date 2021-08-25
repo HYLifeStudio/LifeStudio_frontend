@@ -27,12 +27,28 @@
       border-radius: 9px;
       border: solid 1px #c9c9c9;
       font-size: 0.8rem;
-      color: #bebebe;
+      color: #121212;
       text-indent: 0.5rem;
+    }
+    input::placeholder{
+      color: #bebebe;
     }
     input:focus {
       outline: none;
     }
+  }
+  .editUserChangeIsCheckedPW {
+    height: 1rem;
+    margin-top: 1rem;
+    width: auto;
+    font-family: YDIYGO320;
+    font-size: 0.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ff9c15;
   }
   .editUserChangeSave {
     margin-top: 1rem;
