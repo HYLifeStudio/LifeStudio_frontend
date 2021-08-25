@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react';
+import React,{useState,useContext, useEffect} from 'react';
 import './header.scss';
 import styled, {css} from 'styled-components';
 import { useHistory } from 'react-router';
@@ -11,7 +11,7 @@ function Header() {
   let history = useHistory();
   const [clickOpenArrow, setClickOpenArrow] = useState(false);
   const [clickCloseArrow, setClickCloseArrow] = useState(false);
-  const {setUserInfo} = useContext(UserContext);
+  const {setUserInfo, setAlertModal} = useContext(UserContext);
 
   return (
     <>
@@ -42,6 +42,7 @@ function Header() {
                 <span>HOME</span>
               </div>
               <div
+                style={sessionStorage.length === 0 ? {display:"none"} : {}}
                 className="menuItem"
                 onClick={() => {
                   history.push('/edituser');
@@ -50,15 +51,30 @@ function Header() {
                 <span>내 정보</span>
               </div>
               <div
+                style={sessionStorage.length === 0 ? {display:"none"} : {}}
                 className="menuItem"
                 onClick={() => {
                   setUserInfo({status:'idle',data:null});
                   sessionStorage.clear();
+                  history.push('/');
                   window.location.reload();
-                  console.log("123");
                 }}
               >
                 <span>로그아웃</span>
+              </div>
+              <div
+                style={sessionStorage.length !== 0 ? {display:"none"} : {}}
+                className="menuItem"
+                onClick={() => {
+                  setClickOpenArrow(false);
+                  setClickCloseArrow(true);
+                  setAlertModal({
+                    onoff : true,
+                    msg : ""
+                  });
+                }}
+              >
+                <span>로그인</span>
               </div>
             </div>
           </div>

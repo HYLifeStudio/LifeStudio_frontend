@@ -142,3 +142,13 @@ export const _getUserInfo = async()=>{
 
   }
 }
+
+export const _editUser = async(f, id) => {
+  try {
+    const res = await axios.put(`${url}/users/${id}`, f);
+    console.log(res);
+    return res;
+  } catch (e) {
+    alert(e);
+  }
+}

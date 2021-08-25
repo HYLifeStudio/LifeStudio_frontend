@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './editUserBasic.scss';
 import { _getUserInfo } from '../../../api/api';
 import { useContext } from "react/cjs/react.development";
@@ -14,16 +14,16 @@ function EditUserBasic() {
 
   const getUserInfo = async() => {
     try{
-      _getUserInfo().then((res) => {
-        setUserInfo({
-          status:'pending',
-          data:null,
-        });
-        setUserInfo({
-          status:'resolved',
-          data: res.data
-        });
-      })
+      const res = await _getUserInfo();
+      console.log(res);
+      setUserInfo({
+        status:'pending',
+        data:null,
+      });
+      setUserInfo({
+        status:'resolved',
+        data: res.data
+      });
     }catch(e){
       setUserInfo({
         status:'rejected',
